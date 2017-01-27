@@ -1,0 +1,180 @@
+//
+
+標題
+Subtitle of document
+15:04 2 Jan 2006
+Tags: foo, bar, baz
+
+Author Name
+Job title, Company
+這是
+我的
+joe@example.com
+http://url/
+@twitter_name
+Some Text
+
+# --------------------------------------------------
+
+* About me
+.image ./images/Sean.jpg 250 250
+- 中華電信從研發替代役到正式職員
+- 大學時受 C 影響最深
+- 覺得物聯網時代，除了介面，沒有學個可支撐大數據的後端會被淘汰
+- 開始不務正業找尋適合自己的後端語言（JavaScript 和 Go 對我來說都是重頭學）
+
+# --------------------------------------------------
+
+* 為什麼後來想學 GO？
+- 爽度 V.S. 效能
+.image ./images/go-fast.png 503 752
+
+# --------------------------------------------------
+
+* 為什麼後來想學 GO？
+- C 語言的共同發明者 Ken Thompson 也是 Go 創始人之一 → 原來 Go 和 C 這麼近
+- 可以使用簡單的指標
+.image ./images/Ken_Thompson.jpg
+- 大陸百大企業七牛雲全面改用 Go 語言：「Go 有望成為網路時代的 C 語言。」
+- NPM 開源貢獻值最高 TJ Holowaychuk 決定從 Node.JS 轉向 Go
+
+# --------------------------------------------------
+
+* 為什麼後來想學 GO？
+
+- 每列句尾不用分號
+- 自動排版（gofmt）
+- 內建說明文件產生器（godoc）
+- 內建 Testing 工具（go test）
+- 可撰寫投影片（present）
+- 可撰寫 Android APP（gomobile）
+
+.image ./images/gofmt2.png
+
+# --------------------------------------------------
+
+* 建立 Go 開發環境 for Windows 
+1. 安裝 Go 官方安裝程式 [[https://golang.org/][golang.org]]
+2. 安裝 [[http://msysgit.github.io/][Git for Windows]]
+3. 設定 Windows 環境變數
+4. 安裝 IDE with Go [[https://code.visualstudio.com/][Visual Studio Code]]（隨選）
+
+> P.S.：從 Notepad + Cmd 轉到 Visual Studio Code
+> 聽到：默司大主講「好的 IDE 帶你上天堂」 [[https://www.facebook.com/readbook999/videos/1820498281525927/][Part 1]] [[https://www.facebook.com/readbook999/videos/1821206701455085/][Part 2]]
+
+> P.S.：設定得宜，VSCode 也可以取代 Unity3D 的 MonoDevelop 及 VS2015
+
+# --------------------------------------------------
+
+* 設定 Go 的 Windows 環境變數
+- 安裝程式會在安裝完成後，預設加入兩項 Windows「系統變數」
+「GOROOT」=【C:\Go\】
+「Path」+=【C:\Go\bin】
+
+- 另外還需增加一項 Windows「使用者變數」
+「GOPATH」=【%USERPROFILE%\work】（可自訂）
+「Path」+=【%GOPATH%\bin】
+
+.image ./images/Environment_01.png
+
+# --------------------------------------------------
+
+* 設定 Go 的 Windows 環境變數
+
+2、測試是否設定完成
+
+echo %GOPATH%
+echo %PATH%
+
+.image ./images/Environment_03.png
+
+# --------------------------------------------------
+
+* How to use Visual Studio Code with Go
+
+1. 安裝 VSC 的 Go Extension  
+
+- [[https://marketplace.visualstudio.com/items?itemName=lukehoban.Go][Go for Visual Studio Code]]
+.image ./images/Go_for_Visual_Studio_Code.png 430 720
+
+# --------------------------------------------------
+
+* How to use Visual Studio Code with Go
+
+2. 安裝 Go Package for Visual Studio Code
+
+- 使用命令提示字元 cmd.exe
+
+go get -u -v github.com/nsf/gocode
+go get -u -v github.com/rogpeppe/godef
+go get -u -v github.com/zmb3/gogetdoc
+go get -u -v github.com/golang/lint/golint
+go get -u -v github.com/lukehoban/go-outline
+go get -u -v sourcegraph.com/sqs/goreturns
+go get -u -v golang.org/x/tools/cmd/gorename
+go get -u -v github.com/tpng/gopkgs
+go get -u -v github.com/newhook/go-symbols
+go get -u -v golang.org/x/tools/cmd/guru
+go get -u -v github.com/cweill/gotests/...
+go get -u -v github.com/derekparker/delve/cmd/dlv
+
+- 註：參數的意思 -u：強制安裝最新版本，-v：顯示安裝內容
+
+# --------------------------------------------------
+
+* Go Slide
+Refference：
+http://www.evanlin.com/til-golang-present/
+
+2、使用 cmd.exe 執行以下指令來安裝 go present
+
+> go get -u -v golang.org/x/tools/cmd/present
+> go install golang.org/x/tools/cmd/present
+
+> cd "專案目錄"
+> present
+
+# --------------------------------------------------
+
+拿 Elvan 的範例：
+
+1、將整個專案複製到【%GOPATH%\src】內
+https://github.com/kkdai/mstranslator
+
+2、使用 cmd.exe 執行【godoc -http=:6060】
+
+3、至瀏覽器【http://localhost:6060】點選右上方【Packages】搜尋 mstranslator 即可
+
+
+# --------------------------------------------------
+
+FromXToGo
+[[https://github.com/golang/go/wiki/FromXToGo][From X To Go]]
+
+* 讓你的 GitHub 上的 GO Slide 可以被播放
+http://go-talks.appspot.com/
+
+* 查 API 用的網站：
+
+https://godoc.org/
+https://gowalker.org/
+
+* 免費中文資源
+
+- [[https://www.gitbook.com/book/bingohuang/effective-go-zh-en/details][《Effective Go》]] 中英雙語電子書
+
+- [[https://github.com/Unknwon/go-fundamental-programming][《Go 編程基礎》]] ★ 含影片教學
+
+- [[https://github.com/Unknwon/go-web-foundation][《Go Web 基礎》]] ★ 含影片教學
+
+- [[https://github.com/astaxie/build-web-application-with-golang/tree/master/zh][《Go Web 編程》]] 臺譯：比 C 還簡、捷：使用 Go Web 快建網頁
+
+- [[https://shifei.me/gopl-zh/][《Go 語言聖經》]] 中文翻譯電子書
+
+- [[http://mikespook.com/learning-go/][《學習 Go 語言》]] 中文翻譯電子書
+
+- [[https://github.com/qyuhen/book][《Go 學習筆記》]] 中文電子書
+
+
+* LING API
+https://devdocs.line.me/en/
