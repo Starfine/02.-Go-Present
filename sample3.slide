@@ -1,18 +1,13 @@
-//
+Golang 安裝與環境設定
+為什麼我要學習 Go
+19:30 14 Feb 2017
+Tags: Golang, Environment Setup, 線上 go 讀書會
 
-標題
-Subtitle of document
-15:04 2 Jan 2006
-Tags: foo, bar, baz
-
-Author Name
-Job title, Company
-這是
-我的
-joe@example.com
-http://url/
-@twitter_name
-Some Text
+陳敬翔
+中華電信, IaaS 服務專員
+oneleo@cht.com.tw
+https://www.facebook.com/oneleo760823
+@oneleo760823
 
 # --------------------------------------------------
 
@@ -34,9 +29,10 @@ Some Text
 * 為什麼後來想學 GO？
 - C 語言的共同發明者 Ken Thompson 也是 Go 創始人之一 → 原來 Go 和 C 這麼近
 - 可以使用簡單的指標
-.image ./images/Ken_Thompson.jpg
+#.image ./images/Ken_Thompson.jpg
 - 大陸百大企業七牛雲全面改用 Go 語言：「Go 有望成為網路時代的 C 語言。」
 - NPM 開源貢獻值最高 TJ Holowaychuk 決定從 Node.JS 轉向 Go
+.image ./images/letsgo.jpg 322 500
 
 # --------------------------------------------------
 
@@ -47,7 +43,7 @@ Some Text
 - 內建說明文件產生器（godoc）
 - 內建 Testing 工具（go test）
 - 可撰寫投影片（present）
-- 可撰寫 Android APP（gomobile）
+- 可撰寫手機 APP（gomobile）
 
 .image ./images/gofmt2.png
 
@@ -103,7 +99,7 @@ echo %PATH%
 
 2. 安裝 Go Package for Visual Studio Code
 
-- 使用命令提示字元 cmd.exe
+- 使用命令提示字元（Windows）或用終端機（MacBook）
 
 go get -u -v github.com/nsf/gocode
 go get -u -v github.com/rogpeppe/godef
@@ -135,8 +131,14 @@ http://www.evanlin.com/til-golang-present/
 > present
 
 # --------------------------------------------------
+# 請使用 http://127.0.0.1:3999 來連，用 http://localhost:3999 來連程式會跑不出來
 
-拿 Elvan 的範例：
+* Test
+.play -edit http.go
+
+# --------------------------------------------------
+
+* 拿 Elvan 的範例：
 
 1、將整個專案複製到【%GOPATH%\src】內
 https://github.com/kkdai/mstranslator
