@@ -121,6 +121,7 @@ go get -u -v github.com/derekparker/delve/cmd/dlv
 * Go Slide
 Refference：
 http://www.evanlin.com/til-golang-present/
+https://godoc.org/golang.org/x/tools/present/
 
 2、使用 cmd.exe 執行以下指令來安裝 go present
 
@@ -130,22 +131,38 @@ http://www.evanlin.com/til-golang-present/
 > cd "專案目錄"
 > present
 
+* 讓你的 GitHub 上的 GO Slide 可以被播放
+假設投影片放在 GitHub 上：
+.link https://github.com/Starfine/02.-Go-Present/blob/master/sample3.slide https://【github.com/Starfine/02.-Go-Present】/blob/master【/sample3.slide】
+將前方改成：
+.link http://go-talks.appspot.com/github.com/Starfine/02.-Go-Present/sample3.slide http://go-talks.appspot.com/*github.com/Starfine/02.-Go-Present/sample3.slide*
+
 # --------------------------------------------------
 # 請使用 http://127.0.0.1:3999 來連，用 http://localhost:3999 來連程式會跑不出來
 
 * Test
-.play -edit http.go
+.play -edit hello.go
+
+* 自動排版
+.link https://play.golang.org/p/moLzfkDZKr Demo
+
+* godoc
+
 
 # --------------------------------------------------
 
-* 拿 Elvan 的範例：
+* GoDoc：使用 Golang fmt 為例：
 
-1、將整個專案複製到【%GOPATH%\src】內
-https://github.com/kkdai/mstranslator
+1、將 fmt 複製到【%GOPATH%\src】內
+Windows：
+> xcopy /I "c:\go\src\fmt" "%GOPATH%/src/MyFmt"
+MAC：
+$ cp -p -r "/usr/local/go/src/fmt" "$GOPATH/src/MyFmt"
 
-2、使用 cmd.exe 執行【godoc -http=:6060】
+2、執行 GoDoc 指令
+$> godoc -http=:6060
 
-3、至瀏覽器【http://localhost:6060】點選右上方【Packages】搜尋 mstranslator 即可
+3、至瀏覽器【http://localhost:6060】點選右上方【Packages】搜尋 MyFmt 即可
 
 
 # --------------------------------------------------
@@ -153,8 +170,7 @@ https://github.com/kkdai/mstranslator
 FromXToGo
 [[https://github.com/golang/go/wiki/FromXToGo][From X To Go]]
 
-* 讓你的 GitHub 上的 GO Slide 可以被播放
-http://go-talks.appspot.com/
+
 
 * 查 API 用的網站：
 
