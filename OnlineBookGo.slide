@@ -22,6 +22,7 @@ https://www.facebook.com/oneleo760823
 
 * 為什麼後來想學 GO？
 - 爽度 V.S. 效能
+- 除了效能外，爽度也很重要！
 .image ./images/go-fast.png 503 752
 
 # --------------------------------------------------
@@ -38,14 +39,49 @@ https://www.facebook.com/oneleo760823
 
 * 為什麼後來想學 GO？
 
+- 存檔時自動排版（gofmt）
 - 每列句尾不用分號
-- 自動排版（gofmt）
 - 內建說明文件產生器（godoc）
 - 內建 Testing 工具（go test）
 - 可撰寫投影片（present）
 - 可撰寫手機 APP（gomobile）
 
+# --------------------------------------------------
+
+* 存檔時自動排版（gofmt）
+.image ./images/tab.jpg
+.link https://medium.com/@hoffa/400-000-github-repositories-1-billion-files-14-terabytes-of-code-spaces-or-tabs-7cfe0b5dd7fd#.z07eb1yuf Refference: Medium @Hoffa
+
+# --------------------------------------------------
+
+* 不用分號
 .image ./images/gofmt2.png
+
+# --------------------------------------------------
+
+* 內建說明文件產生器：使用 Fmt Package 為例：
+
+1、將 fmt 複製到【%GOPATH%\src】內
+Windows：
+> xcopy /I "c:\go\src\fmt" "%GOPATH%/src/MyFmt"
+MAC：
+$ cp -p -r "/usr/local/go/src/fmt" "$GOPATH/src/MyFmt"
+
+2、執行 GoDoc 指令
+$> godoc -http=:6060
+
+3、至瀏覽器【http://localhost:6060】點選右上方【Packages】搜尋 MyFmt 即可
+
+# --------------------------------------------------
+
+* Go Test
+
+go test ./codeTest/add_test.go ./codeTest/add.go
+
+# --------------------------------------------------
+
+* Go Mobile
+.link https://www.evernote.com/l/AFv40_jC-uNKfZq0sz9o9WSc0eERZAiS7Po evernote
 
 # --------------------------------------------------
 
@@ -141,28 +177,17 @@ https://godoc.org/golang.org/x/tools/present/
 # 請使用 http://127.0.0.1:3999 來連，用 http://localhost:3999 來連程式會跑不出來
 
 * Test
-.play -edit hello.go
+.play -edit ./codePresent/hello.go /OMIT START/,/OMIT END/
+
+* Http Test
+.play -edit ./codePresent/http.go /OMIT START/,/OMIT END/
 
 * 自動排版
-.link https://play.golang.org/p/moLzfkDZKr Demo
+.link https://play.golang.org/p/uUANEh970a Demo
 
 * godoc
 
 
-# --------------------------------------------------
-
-* GoDoc：使用 Golang fmt 為例：
-
-1、將 fmt 複製到【%GOPATH%\src】內
-Windows：
-> xcopy /I "c:\go\src\fmt" "%GOPATH%/src/MyFmt"
-MAC：
-$ cp -p -r "/usr/local/go/src/fmt" "$GOPATH/src/MyFmt"
-
-2、執行 GoDoc 指令
-$> godoc -http=:6060
-
-3、至瀏覽器【http://localhost:6060】點選右上方【Packages】搜尋 MyFmt 即可
 
 
 # --------------------------------------------------
