@@ -9,13 +9,13 @@ import (
 )
 
 func main() {
-httpHello()
+	httpHello()
 }
 
-func httpHello(){ // OMIT START
+func httpHello() { // OMIT START
 	mux := http.NewServeMux()
 	mux.HandleFunc("/", fHelloWorld)
-	fmt.Println("Please open http://127.0.0.1:8080")
+	fmt.Printf("Please open: http://127.0.0.1:8080\nTips: Run only on localhost!")
 	err := http.ListenAndServe(":8080", mux)
 	if err != nil {
 		log.Fatal(err)

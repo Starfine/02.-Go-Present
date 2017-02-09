@@ -12,195 +12,697 @@ https://www.facebook.com/oneleo760823
 # --------------------------------------------------
 
 * About me
+
 .image ./images/Sean.jpg 250 250
+
 - 中華電信從研發替代役到正式職員
+
 - 大學時受 C 影響最深
+
 - 覺得物聯網時代，除了介面，沒有學個可支撐大數據的後端會被淘汰
+
 - 開始不務正業找尋適合自己的後端語言（JavaScript 和 Go 對我來說都是重頭學）
 
 # --------------------------------------------------
 
-* 為什麼後來想學 GO？
+* 為什麼想學 Go
+
+# --------------------------------------------------
+
+* 為什麼想學 Go？（1／3）
+
 - 爽度 V.S. 效能
-- 除了效能外，爽度也很重要！
+
+- 除了效能外，打扣爽度也很重要！
+
 .image ./images/go-fast.png 503 752
 
 # --------------------------------------------------
 
-* 為什麼後來想學 GO？
+* 為什麼想學 GO？（2／3）
+
 - C 語言的共同發明者 Ken Thompson 也是 Go 創始人之一 → 原來 Go 和 C 這麼近
+
 - 可以使用簡單的指標
+
 #.image ./images/Ken_Thompson.jpg
+
 - 大陸百大企業七牛雲全面改用 Go 語言：「Go 有望成為網路時代的 C 語言。」
+
 - NPM 開源貢獻值最高 TJ Holowaychuk 決定從 Node.JS 轉向 Go
+
 .image ./images/letsgo.jpg 322 500
 
 # --------------------------------------------------
 
-* 為什麼後來想學 GO？
+* 為什麼想學 GO？（3／3）
+
+- 每列句尾不需用分號結束
 
 - 存檔時自動排版（gofmt）
-- 每列句尾不用分號
+
 - 內建說明文件產生器（godoc）
+
 - 內建 Testing 工具（go test）
+
 - 可撰寫投影片（present）
+
 - 可撰寫手機 APP（gomobile）
 
+- 可控制微處理器周邊如 LED、馬達、按鈕等物件（gobot）
+
 # --------------------------------------------------
 
-* 存檔時自動排版（gofmt）
+* Golang 閃電展示時間
+
+# --------------------------------------------------
+
+* 使用 IDE 存檔時自動排版（1／2）
+
+- 因為自動排版，所以使用的 space 和 tab 鍵最少
+
+- 因為自動排版，所以團隊能量可集中在解決問題上 → 而不是看別人程式碼看到火大
+
 .image ./images/tab.jpg
-.link https://medium.com/@hoffa/400-000-github-repositories-1-billion-files-14-terabytes-of-code-spaces-or-tabs-7cfe0b5dd7fd#.z07eb1yuf Refference: Medium @Hoffa
+
+.link https://medium.com/@hoffa/400-000-github-repositories-1-billion-files-14-terabytes-of-code-spaces-or-tabs-7cfe0b5dd7fd#.z07eb1yuf refference: Medium @Hoffa
 
 # --------------------------------------------------
 
-* 不用分號
-.image ./images/gofmt2.png
+* 使用 IDE 存檔時自動排版（2／2）
+
+- 存檔時自動排版
+
+.link https://play.golang.org/p/uUANEh970a
+
+- 直接執行排版指令（這邊以排版 layoutTest.go 為例）
+
+    Windows: > cd "%USERPROFILE%\Dropbox\Go\02. Go Present"
+    MacBook: $ cd "$HOME/Dropbox/Go/02. Go Present"
+
+    $> go fmt layoutTest.go
+
+# --------------------------------------------------
+
+* 程式每列句尾不需使用分號結束
+
+- PTT 鄉民自嘲：程式寫的好，要飯要到老
+
+- debug 時就是當局者迷，旁觀者清
+
+- 但，至少寫 Golang 可以少 de 一種 bug…
+
+.image ./images/gofmt2.png 331 1000
 
 # --------------------------------------------------
 
 * 內建說明文件產生器：使用 Fmt Package 為例：
 
-1、將 fmt 複製到【%GOPATH%\src】內
-Windows：
-> xcopy /I "c:\go\src\fmt" "%GOPATH%/src/MyFmt"
-MAC：
-$ cp -p -r "/usr/local/go/src/fmt" "$GOPATH/src/MyFmt"
+- 將 fmt 複製到【%GOPATH%\src】or【$GOPATH/src】內
 
-2、執行 GoDoc 指令
-$> godoc -http=:6060
+    Windows: > xcopy /I "c:\go\src\fmt" "%GOPATH%\src\MyFmt"
+    MacBook: $ cp -p -r "/usr/local/go/src/fmt" "$GOPATH/src/MyFmt"
 
-3、至瀏覽器【http://localhost:6060】點選右上方【Packages】搜尋 MyFmt 即可
+- 執行 GoDoc 指令
 
-# --------------------------------------------------
+    $> godoc -http=:6060
 
-* Go Test
-
-go test ./codeTest/add_test.go ./codeTest/add.go
+- 至瀏覽器【http://localhost:6060】點選右上方【Packages】搜尋 MyFmt 即可
 
 # --------------------------------------------------
 
-* Go Mobile
-.link https://www.evernote.com/l/AFv40_jC-uNKfZq0sz9o9WSc0eERZAiS7Po evernote
+* 內建重要的 Testing 工具（go test）
+    Windows: $ cd "~/Dropbox/Go/02. Go Present"
+    MacBook: > cd "%USERPROFILE%\Dropbox\Go\02. Go Present"
+
+    $> go test ./codeTest/tenPow_test.go ./codeTest/tenPow.go
+
+- tenPow.go
+
+.code ./codeTest/tenPow.go /OMIT START/,/OMIT END/
+
+- tenPow_test.go
+
+.code ./codeTest/tenPow_test.go /OMIT START/,/OMIT END/
 
 # --------------------------------------------------
 
-* 建立 Go 開發環境 for Windows 
-1. 安裝 Go 官方安裝程式 [[https://golang.org/][golang.org]]
-2. 安裝 [[http://msysgit.github.io/][Git for Windows]]
-3. 設定 Windows 環境變數
-4. 安裝 IDE with Go [[https://code.visualstudio.com/][Visual Studio Code]]（隨選）
+* 使用 Go 撰寫投影片（1／5）
 
-> P.S.：從 Notepad + Cmd 轉到 Visual Studio Code
-> 聽到：默司大主講「好的 IDE 帶你上天堂」 [[https://www.facebook.com/readbook999/videos/1820498281525927/][Part 1]] [[https://www.facebook.com/readbook999/videos/1821206701455085/][Part 2]]
+- Go present 官網
 
-> P.S.：設定得宜，VSCode 也可以取代 Unity3D 的 MonoDevelop 及 VS2015
+.link https://godoc.org/golang.org/x/tools/present/
+
+- 安裝 go present
+
+    $> go get -u -v golang.org/x/tools/cmd/present
+    $> go install golang.org/x/tools/cmd/present
+
+- 執行 present 指令
+
+    Windows: $ cd "~/Dropbox/Go/02. Go Present"
+    MacBook: > cd "%USERPROFILE%\Dropbox\Go\02. Go Present"
+
+    $> present
+
+- 至瀏覽器【http://127.0.0.1:3999】點選【xxx.slide】進行投影片投放
 
 # --------------------------------------------------
 
-* 設定 Go 的 Windows 環境變數
-- 安裝程式會在安裝完成後，預設加入兩項 Windows「系統變數」
-「GOROOT」=【C:\Go\】
-「Path」+=【C:\Go\bin】
+* 使用 Go 撰寫投影片（2／5）
 
-- 另外還需增加一項 Windows「使用者變數」
-「GOPATH」=【%USERPROFILE%\work】（可自訂）
-「Path」+=【%GOPATH%\bin】
+- Go present 可投放 Go 程式（甚至可直接編輯）
+
+.play -edit ./codePresent/hello.go /OMIT START/,/OMIT END/
+
+# --------------------------------------------------
+
+* 使用 Go 撰寫投影片（3／5）
+
+- 還可透過 Go 嵌入程式直接在投影片中建立小型 http 伺服器
+
+.play -edit ./codePresent/http.go /OMIT START/,/OMIT END/
+
+# --------------------------------------------------
+
+* 使用 Go 撰寫投影片（4／5）
+
+- 將 Go 投影片 Push 至 GitHub 上，可透過 [[http://go-talks.appspot.com/][http://go-talks.appspot.com/]] 來投放
+
+- 假設投影片放在 GitHub 上：
+
+.link https://github.com/Starfine/02.-Go-Present/blob/master/OnlineBookGo.slide https://【github.com/Starfine/02.-Go-Present】/blob/master【/OnlineBookGo.slide】
+
+- 只需將前方網址改成：
+
+【http://go-talks.appspot.com/】
++【github.com/Starfine/02.-Go-Present】
++【/OnlineBookGo.slide】
+
+→ [[http://go-talks.appspot.com/github.com/Starfine/02.-Go-Present/OnlineBookGo.slide][http://go-talks.appspot.com/github.com/Starfine/02.-Go-Present/OnlineBookGo.slide]]
+
+# --------------------------------------------------
+
+* 使用 Go 撰寫投影片（5／5）
+
+- 注意事項 1：請使用 http://127.0.0.1:3999 來連，用 http://localhost:3999 來連投影片中的嵌入程式會跑不出來
+
+- 注意事項 2：將 Go 投影片更新至 GitHub 上，在使用 http://go-talks.appspot.com 來投放投影片前需等待一段時間才會更新
+
+- 注意事項 3：因 http://go-talks.appspot.com 會擋 http port，所以執行投影片中的嵌入程式若有使用 net/http package 的程式會執行失敗，解決辦法為使用本地端 http://127.0.0.1:3999 來投放
+
+# --------------------------------------------------
+
+* 使用 Go Mobile 開發手機 APP（1／5）
+
+- 開發環境需可編譯 C/C++ 語言（要安裝 GCC 編譯套件）
+
+- 若要編譯 Android APP，要安裝 SDK、JDK、NDK，才可將 C 語言編譯成 apk 檔
+
+- JNI 可視為 JAVA 與 C/C++ 橋樑，NDK 則可將 JAVA、C/C++ 程式打包成單一 apk 檔
+
+.image ./images/HowGoMobileWorks.jpg
+
+.link http://www.slideshare.net/takuyaueda967/go-for-mobile-games refference: Go for Mobile Game
+
+# --------------------------------------------------
+
+* 使用 Go Mobile 開發手機 APP（2／5）
+
+- NDK 下載後解壓縮並放在 $HOME/Library/Android/ 內
+
+.link https://developer.android.com/ndk/downloads/index.html
+
+- 設定 MacBook 環境變數
+
+    $ ln -s "$HOME/Library/Android/android-ndk-r13b" "$HOME/Library/Android/ndk"
+    $ vim $HOME/.bash_profile
+
+- .bash_profile
+
+.code ./codePresent/.bash_profile
+
+    $ source "$HOME/.bash_profile"
+
+# --------------------------------------------------
+
+* 使用 Go Mobile 開發手機 APP（3／5）
+
+- Go Mobile 官網
+.link https://godoc.org/golang.org/x/mobile/cmd/gomobile
+
+- 下載 GoMobile
+    $> go get -u -v golang.org/x/mobile/cmd/gomobile
+
+- 安裝 GoMobile 編譯工具
+    Windows: > gomobile init -v
+    MacBook: $ gomobile init -v -ndk "$ANDROID_NDK_HOME"
+
+# --------------------------------------------------
+
+* 使用 Go Mobile 開發手機 APP（4／5）
+
+- 僅 Windows：安裝 GCC 編譯套裝，請下載 TDM-GCC 並安裝
+.link http://tdm-gcc.tdragon.net/download
+
+- 僅 Windows：下載編譯內建範例所需用的套件
+    > go get -u -v golang.org/x/exp/shiny/driver/gldriver
+    > go get -u -v golang.org/x/exp/shiny/screen
+
+- 僅 MacBook：安裝 GCC 編譯套裝，請下載 Xcode 並安裝
+.link https://itunes.apple.com/tw/app/xcode/id497799835?l=zh&mt=12
+
+# --------------------------------------------------
+
+* 使用 Go Mobile 開發手機 APP（5／5）
+
+- 在本機執行測試
+    Windows: > cd "%GOPATH%\src\golang.org\x\mobile\example\basic"
+    MacBook: $ cd "$GOPATH/src/golang.org/x/mobile/example/basic"
+    $> go run main.go
+
+- 輸出成可安裝至 Android 手機內的 apk 檔
+    Windows: > gomobile build -target "android"
+                -o "%GOPATH%\src\golang.org\x\mobile\example\basic\basic.apk"
+                    golang.org/x/mobile/example/basic
+# > gomobile build -target "android" -o "%GOPATH%\src\golang.org\x\mobile\example\basic\basic.apk" golang.org/x/mobile/example/basic
+    MacBook: $ gomobile build -target "android"
+                -o "$GOPATH/src/golang.org/x/mobile/example/basic/basic.apk"
+                    golang.org/x/mobile/example/basic
+# $ gomobile build -target "android" -o "$GOPATH/src/golang.org/x/mobile/example/basic/basic.apk" golang.org/x/mobile/example/basic
+
+- 或將 apk 檔直接安裝在與之連接的 Android 手機
+    $> gomobile install golang.org/x/mobile/example/basic
+    $> gomobile install golang.org/x/mobile/example/flappy
+
+# --------------------------------------------------
+
+* 附錄：如何將 Android 手機畫面投放至 Google Chrome？
+
+- 參考：電腦玩物部落閤
+.link http://www.playpcesor.com/2015/09/android-vysor.html Android 畫面操作投影電腦！ Vysor 簡報鏡射新神器
+
+- 在 Google Chrome 安裝 Vysor 擴充套件
+.link https://chrome.google.com/webstore/detail/vysor-beta/gidgenkbbabolejbgbpnhbimgjbffefm Vysor 擴充套件下載點
+
+- Android 手機要開啟 USB debugging 功能（開發人員選項）
+.image ./images/AndroidUSBDebugging.png 320 180
+
+# --------------------------------------------------
+
+* 可控制微處理器周邊如 LED、馬達、按鈕等物件（暫未完成）（1／2）
+
+- GoBot 官網
+.link https://gobot.io/
+
+- 下載 GoBot
+    $ go get -d -u -v gobot.io/x/gobot/...
+
+- 安裝開發板平台（這邊以 Raspberry Pi 為例）
+    $ go install gobot.io/x/gobot/platforms/raspi
+
+- 至 Raspberry Pi 內建立資料夾
+    $ ssh pi@192.168.xxx.xxx
+    $$ mkdir -p /home/pi/work/src/gobot.io/x/gobot/examples/
+    $$ exit
+
+# --------------------------------------------------
+
+* 可控制微處理器周邊如 LED、馬達、按鈕等物件（暫未完成）（2／2）
+
+- 將 GoBot 範例編譯成可供 Raspberry Pi 執行的檔案
+    $ GOARM=7 GOARCH=arm GOOS=linux go build
+        -o "$GOPATH/src/gobot.io/x/gobot/examples/raspi_blink"
+            $GOPATH/src/gobot.io/x/gobot/examples/raspi_blink.go
+# $ GOARM=7 GOARCH=arm GOOS=linux go build -o "$GOPATH/src/gobot.io/x/gobot/examples/raspi_blink" $GOPATH/src/gobot.io/x/gobot/examples/raspi_blink.go
+
+- 將編譯完成的可執行檔複製到 Raspberry Pi 內
+    $ scp -p "$GOPATH/src/gobot.io/x/gobot/examples/raspi_blink"
+        pi@192.168.xxx.xxx:"/home/pi/work/src/gobot.io/x/gobot/examples/raspi_blink"
+# $ scp -p "$GOPATH/src/gobot.io/x/gobot/examples/raspi_blink" pi@192.168.xxx.xxx:"/home/pi/work/src/gobot.io/x/gobot/examples/raspi_blink"
+
+- SSH 至 Raspberry Pi 內執行檔案
+    $ ssh pi@192.168.xxx.xxx
+    $$ "/home/pi/work/src/gobot.io/x/gobot/examples/raspi_blink"
+
+# --------------------------------------------------
+
+* 建立 Go 開發環境
+
+# --------------------------------------------------
+
+* 建立 Go 開發環境（以下 Windows & MacBook 均適用）
+
+- 安裝 [[https://golang.org/][Go]] 官方安裝程式
+
+- 「go get -u -v」套件下載指令需搭配 [[https://git-scm.com/downloads][Git]] 軟體，或已擁有 [[https://github.com/][GitHub]] 或 [[https://bitbucket.org][BitBucket]] 帳號的網友，強力推薦安裝 [[https://www.sourcetreeapp.com/][SourceTree]]（登入才會自動安裝 Git Command Line 工具）
+
+- 設定環境變數（即將於 [[https://talks.golang.org/2017/state-of-go.slide#19][Go 1.8 版]]變為自動設置）
+    MacBook：$HOME/go
+    Windows：%USERPROFILE%\go
+
+- 安裝 IDE with Go [[https://code.visualstudio.com/][Visual Studio Code]]（自訂，但建議安裝）
+
+- P.S.：自從聽到：默司大主講的「好的 IDE 帶你上天堂」 [[https://www.facebook.com/readbook999/videos/1820498281525927/][Part 1]] [[https://www.facebook.com/readbook999/videos/1821206701455085/][Part 2]] ，就從 Notepad + Cmd 轉到 Visual Studio Code 的行列
+ 
+- P.S.：有在開發 Unity3D 的大大也可以使用 VSCode 取代內建的 MonoDevelop 或 VS2015
+
+# --------------------------------------------------
+
+* 設定 Go 1.7.5 版之前的環境變數 for Windows（1／2）
+
+- 安裝程式會在安裝完成後，預設會加入兩項 Windows「系統變數」，即可使用 Go 指令
+    > set GOROOT=C:\Go\
+    > set PATH=%PATH%;C:\Go\bin
+
+- 我們還需要另外設置「工作目錄」至 Windows 使用者變數內（永久設置請使用 GUI 設定）。工作目錄可自行定義但一定要設置，往後透過「go get -u -v」下載的套件均存放在 %GOPATH%\src 裡
+    > set GOPATH=%USERPROFILE%\work
+    > set PATH=%PATH%;%GOPATH%\bin
 
 .image ./images/Environment_01.png
 
 # --------------------------------------------------
 
-* 設定 Go 的 Windows 環境變數
+* 設定 Go 1.7.5 版之前的環境變數 for Windows（2／2）
 
-2、測試是否設定完成
+- 測試是否設定完成
 
-echo %GOPATH%
-echo %PATH%
+    > echo %GOPATH%
+    > echo %PATH%
 
 .image ./images/Environment_03.png
 
 # --------------------------------------------------
 
-* How to use Visual Studio Code with Go
+* 設定 Go 1.7.5 版之前的環境變數 for MacBook（1／2）
 
-1. 安裝 VSC 的 Go Extension  
+- 安裝程式會在安裝完成後，預設會加入一項環境變數，即可以使用 Go 指令
+    $ export PATH="$PATH:/usr/local/go/bin"
 
-- [[https://marketplace.visualstudio.com/items?itemName=lukehoban.Go][Go for Visual Studio Code]]
+- 我們還需要另外設置「工作目錄」至 MacBook 使用者變數內（永久設置請將指令設定至 $HOME/.bash_profile 裡）。工作目錄可自行定義但一定要設置，往後透過「go get -u -v」下載的套件均存放在 $GOPATH/src 裡
+
+    $ export GOPATH="$HOME/work"
+    $ export PATH="$PATH:$GOPATH/bin"
+
+.image ./images/Environment_06.png
+
+# --------------------------------------------------
+
+* 設定 Go 1.7.5 版之前的環境變數 for MacBook（2／2）
+
+- 測試是否設定完成
+
+    $ echo $GOPATH
+    $ echo $PATH
+
+.image ./images/Environment_07.png
+
+# --------------------------------------------------
+
+* 附錄：如何查看 Windows or MacBook 的環境變數？
+
+- 註 1：如何察看 MacBook 內的環境變數
+    $ printenv
+
+- 註 2：MacBook 環境變數設定檔執行順序：
+    1. "/etc/profile"
+    2. "/etc/paths"
+    3. "$HOME/.bash_profile"
+    4. "$HOME/.bash_login"
+    5. "$HOME/.profile"
+    6. "$HOME/.bashrc"
+
+- 註 3：如何察看 Windows 內的環境變數
+    > set
+
+# --------------------------------------------------
+
+* 使用 Visual Studio Code 來開發 Go
+
+# --------------------------------------------------
+
+* 使用 Visual Studio Code 來開發 Go（1／5）
+
+- 參考：默司大主講的「好的 IDE 帶你上天堂」二篇 [[https://www.facebook.com/readbook999/videos/1820498281525927/][Part 1]] [[https://www.facebook.com/readbook999/videos/1821206701455085/][Part 2]] 
+- 安裝 [[https://code.visualstudio.com/][Visual Studio Code]]
+- 安裝 Visual Studio Code 的 [[https://marketplace.visualstudio.com/items?itemName=lukehoban.Go][Go Extension]]
+    1. 請在 VSC 內鍵入 Ctrl（or Command）+ Shift + P 鍵入「Extensions: Install Extensions」→ 鍵入「Go」
+    2. 或點選 VSC 的「View」→「Extensions」→ 鍵入「Go」
+
 .image ./images/Go_for_Visual_Studio_Code.png 430 720
 
 # --------------------------------------------------
 
-* How to use Visual Studio Code with Go
+* 使用 Visual Studio Code 來開發 Go（2／5）
 
-2. 安裝 Go Package for Visual Studio Code
+- 安裝必要的相依套件，執行下列指令
 
-- 使用命令提示字元（Windows）或用終端機（MacBook）
+    $> go get -u -v github.com/nsf/gocode
+    $> go get -u -v github.com/rogpeppe/godef
+    $> go get -u -v github.com/zmb3/gogetdoc
+    $> go get -u -v github.com/golang/lint/golint
+    $> go get -u -v github.com/lukehoban/go-outline
+    $> go get -u -v sourcegraph.com/sqs/goreturns
+    $> go get -u -v golang.org/x/tools/cmd/gorename
+    $> go get -u -v github.com/tpng/gopkgs
+    $> go get -u -v github.com/newhook/go-symbols
+    $> go get -u -v golang.org/x/tools/cmd/guru
+    $> go get -u -v github.com/cweill/gotests/...
+    $> go get -u -v github.com/derekparker/delve/cmd/dlv
 
-go get -u -v github.com/nsf/gocode
-go get -u -v github.com/rogpeppe/godef
-go get -u -v github.com/zmb3/gogetdoc
-go get -u -v github.com/golang/lint/golint
-go get -u -v github.com/lukehoban/go-outline
-go get -u -v sourcegraph.com/sqs/goreturns
-go get -u -v golang.org/x/tools/cmd/gorename
-go get -u -v github.com/tpng/gopkgs
-go get -u -v github.com/newhook/go-symbols
-go get -u -v golang.org/x/tools/cmd/guru
-go get -u -v github.com/cweill/gotests/...
-go get -u -v github.com/derekparker/delve/cmd/dlv
-
-- 註：參數的意思 -u：強制安裝最新版本，-v：顯示安裝內容
+- 註：參數的意思 -u：強制安裝最新版本，-v：顯示安裝內容（非靜音模式）
 
 # --------------------------------------------------
 
-* Go Slide
-Refference：
-http://www.evanlin.com/til-golang-present/
-https://godoc.org/golang.org/x/tools/present/
+* 使用 Visual Studio Code 來開發 Go（3／5）
 
-2、使用 cmd.exe 執行以下指令來安裝 go present
+- 來用 Visual Studio Code 來開發 Go 吧！
 
-> go get -u -v golang.org/x/tools/cmd/present
-> go install golang.org/x/tools/cmd/present
-
-> cd "專案目錄"
-> present
-
-* 讓你的 GitHub 上的 GO Slide 可以被播放
-假設投影片放在 GitHub 上：
-.link https://github.com/Starfine/02.-Go-Present/blob/master/sample3.slide https://【github.com/Starfine/02.-Go-Present】/blob/master【/sample3.slide】
-將前方改成：
-.link http://go-talks.appspot.com/github.com/Starfine/02.-Go-Present/sample3.slide http://go-talks.appspot.com/*github.com/Starfine/02.-Go-Present/sample3.slide*
-
-# --------------------------------------------------
-# 請使用 http://127.0.0.1:3999 來連，用 http://localhost:3999 來連程式會跑不出來
-
-* Test
-.play -edit ./codePresent/hello.go /OMIT START/,/OMIT END/
-
-* Http Test
-.play -edit ./codePresent/http.go /OMIT START/,/OMIT END/
-
-* 自動排版
-.link https://play.golang.org/p/uUANEh970a Demo
-
-* godoc
-
-
-
+.image ./images/VSCDemo.png
 
 # --------------------------------------------------
 
-FromXToGo
-[[https://github.com/golang/go/wiki/FromXToGo][From X To Go]]
+* 使用 Visual Studio Code 來開發 Go（4／5）
+
+- 強烈建議安裝的 Visual Studio Code 套件
+
+- 按下 Shift + Ctrl（Command）+ P → 鍵入 Extensions: Install Extensions
+
+- [[https://marketplace.visualstudio.com/items?itemName=Shan.code-settings-sync][Settings Sync]]：129,450 installs（請參考官網設定，初次使用請先執行 sync: Upload，輸入 Token 後會出現 Gist，再將 Gist 輸入即可）
+
+.image ./images/github1.png
+
+# --------------------------------------------------
+
+* 使用 Visual Studio Code 來開發 Go（5／5）
+
+- 強烈建議設置的 Visual Studio Code 使用者設定
+
+- 按下 Shift + Ctrl（Command）+ P → 鍵入 Preferences: Open User Settings
+
+        // --------------------------------------------------
+        // 【通用設定】
+        // --------------------------------------------------
+        // Terminal 字型顯示大小
+        "terminal.integrated.fontSize": 16,
+        // 控制已變更檔案的自動儲存功能。接受的值: "off"、"afterDelay"、"onFocusChange" (編輯器失去焦點)、"onWindowChange" (視窗失去焦點)。如果設為 "afterDelay"，您可以在 "files.autoSaveDelay" 中設定延遲。
+        "files.autoSave": "onFocusChange",
+        // 在儲存時設定檔案格式。格式器必須處於可用狀態、檔案不得自動儲存，且編輯器不得關機。
+        "editor.formatOnSave": true,
+        // 調整編輯區字型大小
+        "editor.fontSize": 15,
+        // Controls after how many characters the editor will wrap to the next line. Setting this to 0 turns on viewport width wrapping (word wrapping). Setting this to -1 forces the editor to never wrap.
+        "editor.wrappingColumn": 75,
+        // --------------------------------------------------
+        // 【Go 專用設定】
+        // --------------------------------------------------
+        // 自動插入完整的建議參數
+        // Complete functions with their parameter signature
+        "go.useCodeSnippetsOnFunctionSuggest": true,
+
+# --------------------------------------------------
+
+* 附件：我目前有安裝的 Visual Studio Code 套件（1／4）
+
+- 按下 Shift + Ctrl（Command）+ P → 鍵入 Extensions: Install Extensions
+
+- [[https://marketplace.visualstudio.com/items?itemName=moozzyk.Arduino][Arduino]]：12,839 installs
+
+- [[https://marketplace.visualstudio.com/items?itemName=formulahendry.azure-iot-toolkit][Azure IoT Toolkit]]：2,793 installs
+
+- [[https://marketplace.visualstudio.com/items?itemName=wcwhitehead.bootstrap-3-snippets][Bootstrap 3 Snippets]]：171,922 installs
+
+- [[https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools][C/C++ Preview]]：858,190 installs
+
+- [[https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp][C#]]：1,387,035 installs
+
+- [[https://marketplace.visualstudio.com/items?itemName=Compulim.vscode-chinese-translation][Chinese Translation]]：723 installs
+
+- [[https://marketplace.visualstudio.com/items?itemName=formulahendry.code-runner][Code Runner]]：183,022 installs
+
+- [[https://marketplace.visualstudio.com/items?itemName=Unity.unity-debug][Debugger for Unity]]：40,600 installs
+
+- [[https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker][Docker Support]]：167,299 installs
+
+# --------------------------------------------------
+
+* 附件：我目前有安裝的 Visual Studio Code 套件（2／4）
+
+- [[https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint][ESLint]]：568,766 installs
+
+- [[https://marketplace.visualstudio.com/items?itemName=ms-devlabs.extension-manifest-editor][Extension Manifest Editor]]：1,916 installs
+
+- [[https://marketplace.visualstudio.com/items?itemName=donjayamanne.githistory][Git History (git log)]]：233,290 installs
+
+- [[https://marketplace.visualstudio.com/items?itemName=lukehoban.Go][Go]]：356,997 installs
+
+- [[https://marketplace.visualstudio.com/items?itemName=jaydenlin.google-complete-me][Google Complete Me]]：2,602 installs
+
+- [[https://marketplace.visualstudio.com/items?itemName=Zignd.html-css-class-completion][HTML CSS Class Completion]]：142,614 installs
+
+- [[https://marketplace.visualstudio.com/items?itemName=abusaidm.html-snippets][HTML Snippets]]：348,056 installs
+
+- [[https://marketplace.visualstudio.com/items?itemName=ms-vscode.js-atom-grammar][JavaScript Atom Grammar]]：20,340 installs
+
+- [[https://marketplace.visualstudio.com/items?itemName=ms-vscode.jscs][JSCS Linting]]：15,597 installs
+
+- [[https://marketplace.visualstudio.com/items?itemName=ms-vscode.typescript-javascript-grammar][Latest TypeScript and Javascript Grammar]]：47,455 installs
+
+# --------------------------------------------------
+
+* 附件：我目前有安裝的 Visual Studio Code 套件（3／4）
+
+- [[https://marketplace.visualstudio.com/items?itemName=ms-vscode.latex][LaTeX Language Support]]：26,077 installs
+
+- [[https://marketplace.visualstudio.com/items?itemName=ms-vscode.mono-debug][Mono Debug]]：67,224 installs
+
+- [[https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql][mssql]]：40,351 installs
+
+- [[https://marketplace.visualstudio.com/items?itemName=eg2.vscode-npm-script][npm]]：84,095 installs
+
+- [[https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell][PowerShell]]：275,748 installs
+
+- [[https://marketplace.visualstudio.com/items?itemName=donjayamanne.python][Python]]：961,722 installs
+
+- [[https://marketplace.visualstudio.com/items?itemName=Shan.code-settings-sync][Settings Sync]]：129,450 installs（請參考官網設定，初次使用請先執行 sync: Upload，輸入 Token 後會出現 Gist，再將 Gist 輸入即可）
+
+.image ./images/github1.png
+
+# --------------------------------------------------
+
+* 附件：我目前有安裝的 Visual Studio Code 套件（4／4）
+
+- [[https://marketplace.visualstudio.com/items?itemName=slevesque.shader][Shader languages support for VS Code]]：6,767 installs
+
+- [[https://marketplace.visualstudio.com/items?itemName=seanmcbreen.Spell][Spelling and Grammar Checker]]：104,947 installs
+
+- [[https://marketplace.visualstudio.com/items?itemName=robertohuertasm.vscode-icons][vscode-icons]]：698,778 installs
+
+- [[https://marketplace.visualstudio.com/items?itemName=ms-iot.windowsiot][Windows Iot Core Extension for VS Code]]：3,386 installs
+
+- [[https://marketplace.visualstudio.com/items?itemName=ms-vscode.wordcount][Word Count]]：6,413 installs
+
+- 注：建議勿裝套件：[[https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify][beautify]]：507,143 installs（經測試，此套件會和 VSC 內建的 JSON 排版對衝，導致每次存檔排版會跑掉）
+
+- 註：Visual Studio Code [[https://marketplace.visualstudio.com/search?target=VSCode&sortBy=Downloads][套件搜尋網頁]]（按照下載次數進行排序）
+
+# --------------------------------------------------
+
+* 附件：我目前的 Visual Studio Code 使用者設定（1／3）
+
+- 按下 Shift + Ctrl（Command）+ P → 鍵入 Preferences: Open User Settings
+
+    // 將您的設定放入此檔案中以覆寫預設值
+    {
+        // --------------------------------------------------
+        // 【通用設定】
+        // --------------------------------------------------
+        // Terminal 字型顯示大小
+        "terminal.integrated.fontSize": 16,
+        // 控制已變更檔案的自動儲存功能。接受的值: "off"、"afterDelay"、"onFocusChange" (編輯器失去焦點)、"onWindowChange" (視窗失去焦點)。如果設為 "afterDelay"，您可以在 "files.autoSaveDelay" 中設定延遲。
+        "files.autoSave": "onFocusChange",
+        // 在儲存時設定檔案格式。格式器必須處於可用狀態、檔案不得自動儲存，且編輯器不得關機。
+        "editor.formatOnSave": true,
+        // 調整編輯區字型大小
+        "editor.fontSize": 15,
+        // Controls after how many characters the editor will wrap to the next line. Setting this to 0 turns on viewport width wrapping (word wrapping). Setting this to -1 forces the editor to never wrap.
+        "editor.wrappingColumn": 75,
+        // --------------------------------------------------
+        // 【Go 專用設定】
+        // --------------------------------------------------
+        // 自動插入完整的建議參數
+        // Complete functions with their parameter signature
+        "go.useCodeSnippetsOnFunctionSuggest": true,
+
+# --------------------------------------------------
+
+* 附件：我目前的 Visual Studio Code 使用者設定（2／3）
+
+        // --------------------------------------------------
+        // 【Node.JS 專用設定】
+        // --------------------------------------------------
+        // Complete functions with their parameter signature.
+        "typescript.useCodeSnippetsOnMethodSuggest": true,
+        // --------------------------------------------------
+        // 【Unity 專用設定】
+        // --------------------------------------------------
+        // 控制編輯器是否顯示程式碼濾鏡
+        "editor.codeLens": false,
+        // --------------------------------------------------
+        // 【Settings Sync 專用設定（套件自動設定）】
+        // --------------------------------------------------
+        "sync.gist": "ff3526b9934d3451f85ab5cdf84090ff",
+        "sync.lastUpload": "2017-02-09T02:02:55.694Z",
+        "sync.autoDownload": false,
+        "sync.autoUpload": false,
+        "sync.lastDownload": "1970-01-01T00:00:00.000Z",
+        "sync.version": 243,
+        "sync.showSummary": true,
+        "sync.forceDownload": false,
+        "sync.workspaceSync": false,
+        "sync.anonymousGist": false,
 
 
+# --------------------------------------------------
 
-* 查 API 用的網站：
+* 附件：我目前的 Visual Studio Code 使用者設定（3／3）
 
-https://godoc.org/
-https://gowalker.org/
+        // --------------------------------------------------
+        // 【結尾】
+        // --------------------------------------------------
+        "": null
+        }
+
+# --------------------------------------------------
+
+* 線上學習資源
+
+# --------------------------------------------------
+
+* 你的好鄰居：Google 大神
+
+- 注意：找尋相關資料時請使用關鍵字「[[https://www.google.com.tw/search?q=golang&oq=golang&aqs=chrome..69i57j69i60j69i61j69i60l3.247j0j1&sourceid=chrome&ie=UTF-8][golang]]」而非「go」
+
+.image ./images/GoogleGolang.png
+
+# --------------------------------------------------
+
+* 無論你從哪裡來都歡迎：FromXToGo（英文）
+.link https://github.com/golang/go/wiki/FromXToGo
+
+.image ./images/FromXToGo.png
+
+# --------------------------------------------------
+
+* 最常用的網站：API 查詢與熱門 GitHub 套件搜尋
+
+- [[https://godoc.org/][GoDoc]]
+- [[https://gowalker.org/][GoWalker]]
+- [[https://golanglibs.com/][GoLangLibs]]
+
+.image ./images/GoWalker.png 609 900
+
+# --------------------------------------------------
 
 * 免費中文資源
 
@@ -218,6 +720,28 @@ https://gowalker.org/
 
 - [[https://github.com/qyuhen/book][《Go 學習筆記》]] 中文電子書
 
+# --------------------------------------------------
 
-* LING API
-https://devdocs.line.me/en/
+* 推薦 Facebook 社團
+
+- Go程式語言 (Golang Taiwan, Gopher Taipei)
+.link https://www.facebook.com/groups/269001993248363/
+
+- 線上go讀書會
+.link https://www.facebook.com/groups/1288435607857868
+
+# --------------------------------------------------
+
+* 其他推薦好康
+
+- [[https://talks.golang.org/][官方新版本釋出前介紹]]
+
+- [[http://www.evanlin.com/][Evan Lin 大大的部落格文章]]
+
+- [[http://colobu.com/][鳥窩-大道至簡]]
+
+- [[http://blog.twsiyuan.com/][工程師的寫作練習]]
+
+- [[https://blog.wu-boy.com/][小惡魔 – 電腦技術 – 工作筆記 – AppleBOY]]
+
+# --------------------------------------------------
