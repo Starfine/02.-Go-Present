@@ -33,23 +33,23 @@ https://www.facebook.com/oneleo760823
 
 - 爽度 V.S. 效能
 
-- 除了效能外，打扣爽度也很重要！
+- 除了效能外，打扣時爽度也很重要！
 
-.image ./images/go-fast.png 503 752
+.image ./images/go-fast.png 468 700
 
 # --------------------------------------------------
 
 * 為什麼想學 GO？（2／3）
 
-- C 語言的共同發明者 Ken Thompson 也是 Go 創始人之一 → 原來 Go 和 C 這麼近
+- C 語言的共同發明者 [[https://zh.wikipedia.org/wiki/%E8%82%AF%C2%B7%E6%B1%A4%E6%99%AE%E9%80%8A][Ken Thompson]]  也是 Go 創始人之一 → 原來 Go 和 C 這麼近
 
-- 可以使用簡單的指標
+- 可以使用[[https://tour.golang.org/moretypes/1][簡單的指標]]
 
 #.image ./images/Ken_Thompson.jpg
 
-- 大陸百大企業七牛雲全面改用 Go 語言：「Go 有望成為網路時代的 C 語言。」
+- 大陸百大企業[[https://www.qiniu.com/][七牛雲存儲]]全面改用 [[http://blog.qiniu.com/archives/113][Go 語言]]：「[[http://blog.csdn.net/turingbooks/article/details/7863317][Go 有望成為互聯網時代的 C 語言。]]」
 
-- NPM 開源貢獻值最高 TJ Holowaychuk 決定從 Node.JS 轉向 Go
+- NPM 開源貢獻值最高 [[https://github.com/tj][TJ Holowaychuk]] 決定從 [[https://www.zhihu.com/question/24373004][Node.JS 轉向 Go]]
 
 .image ./images/letsgo.jpg 322 500
 
@@ -79,11 +79,11 @@ https://www.facebook.com/oneleo760823
 
 * 使用 IDE 存檔時自動排版（1／2）
 
-- 因為自動排版，所以使用的 space 和 tab 鍵最少
+- 因為自動排版，所以使用的 space 和 tab 鍵最少（嚴格上只有 tab 鍵）
 
 - 因為自動排版，所以團隊能量可集中在解決問題上 → 而不是看別人程式碼看到火大
 
-.image ./images/tab.jpg
+.image ./images/tab.jpg 400 608
 
 .link https://medium.com/@hoffa/400-000-github-repositories-1-billion-files-14-terabytes-of-code-spaces-or-tabs-7cfe0b5dd7fd#.z07eb1yuf refference: Medium @Hoffa
 
@@ -91,9 +91,7 @@ https://www.facebook.com/oneleo760823
 
 * 使用 IDE 存檔時自動排版（2／2）
 
-- 存檔時自動排版
-
-.link https://play.golang.org/p/uUANEh970a
+- 存檔時自動排版：[[https://play.golang.org/p/uUANEh970a][線上 Demo]]
 
 - 直接執行排版指令（這邊以排版 layoutTest.go 為例）
 
@@ -102,13 +100,15 @@ https://www.facebook.com/oneleo760823
 
     $> go fmt layoutTest.go
 
+.image ./images/GoFmtDemo.png 371 400
+
 # --------------------------------------------------
 
 * 程式每列句尾不需使用分號結束
 
-- PTT 鄉民自嘲：程式寫的好，要飯要到老
+- PTT 鄉民自嘲：程式寫的好，要飯要到老（這是玩笑話）
 
-- debug 時就是當局者迷，旁觀者清
+- debug 時就是牽當局者迷，常常會忘了最基本的結尾
 
 - 但，至少寫 Golang 可以少 de 一種 bug…
 
@@ -123,6 +123,11 @@ https://www.facebook.com/oneleo760823
     Windows: > xcopy /I "c:\go\src\fmt" "%GOPATH%\src\MyFmt"
     MacBook: $ cp -p -r "/usr/local/go/src/fmt" "$GOPATH/src/MyFmt"
 
+- 修改某 function 前面的註解（這邊以修改 func Errorf 前方的註解為例）
+
+    Windows: 用記事本修改 "%GOPATH%\src\MyFmt\print.go"
+    MacBook: $ vim "$GOPATH/src/MyFmt/print.go"
+
 - 執行 GoDoc 指令
 
     $> godoc -http=:6060
@@ -132,8 +137,8 @@ https://www.facebook.com/oneleo760823
 # --------------------------------------------------
 
 * 內建重要的 Testing 工具（go test）
-    Windows: $ cd "~/Dropbox/Go/02. Go Present"
-    MacBook: > cd "%USERPROFILE%\Dropbox\Go\02. Go Present"
+    Windows: > cd "%USERPROFILE%\Dropbox\Go\02. Go Present"
+    MacBook: $ cd "$HOME/Dropbox/Go/02. Go Present"
 
     $> go test ./codeTest/tenPow_test.go ./codeTest/tenPow.go
 
@@ -149,9 +154,7 @@ https://www.facebook.com/oneleo760823
 
 * 使用 Go 撰寫投影片（1／5）
 
-- Go present 官網
-
-.link https://godoc.org/golang.org/x/tools/present/
+- Go present [[https://godoc.org/golang.org/x/tools/present/][官網說明文件]]
 
 - 安裝 go present
 
@@ -165,7 +168,7 @@ https://www.facebook.com/oneleo760823
 
     $> present
 
-- 至瀏覽器【http://127.0.0.1:3999】點選【xxx.slide】進行投影片投放
+- 至瀏覽器【[[http://127.0.0.1:3999][http://127.0.0.1:3999]]】點選【xxx.slide】進行投影片投放
 
 # --------------------------------------------------
 
@@ -205,11 +208,11 @@ https://www.facebook.com/oneleo760823
 
 * 使用 Go 撰寫投影片（5／5）
 
-- 注意事項 1：請使用 http://127.0.0.1:3999 來連，用 http://localhost:3999 來連投影片中的嵌入程式會跑不出來
+- 注意事項 1：請使用 [[http://127.0.0.1:3999/OnlineBookGo.slide#14][http://127.0.0.1:3999]] 來連，用 [[http://localhost:3999/OnlineBookGo.slide#14][http://localhost:3999]] 來連投影片中的嵌入程式會跑不出來
 
-- 注意事項 2：將 Go 投影片更新至 GitHub 上，在使用 http://go-talks.appspot.com 來投放投影片前需等待一段時間才會更新
+- 注意事項 2：將 Go 投影片更新至 GitHub 上，在使用 [[http://go-talks.appspot.com/github.com/Starfine/02.-Go-Present/OnlineBookGo.slide][http://go-talks.appspot.com]] 來投放投影片前需等待一段時間才會更新
 
-- 注意事項 3：因 http://go-talks.appspot.com 會擋 http port，所以執行投影片中的嵌入程式若有使用 net/http package 的程式會執行失敗，解決辦法為使用本地端 http://127.0.0.1:3999 來投放
+- 注意事項 3：因 [[http://go-talks.appspot.com/github.com/Starfine/02.-Go-Present/OnlineBookGo.slide#15][http://go-talks.appspot.com]] 會擋 http port，所以執行投影片中的嵌入程式若有使用 net/http package 的程式會執行失敗，解決辦法為使用本地端 [[http://127.0.0.1:3999/OnlineBookGo.slide#15][http://127.0.0.1:3999]] 來投放
 
 # --------------------------------------------------
 
@@ -262,15 +265,13 @@ https://www.facebook.com/oneleo760823
 
 * 使用 Go Mobile 開發手機 APP（4／5）
 
-- 僅 Windows：安裝 GCC 編譯套裝，請下載 TDM-GCC 並安裝
-.link http://tdm-gcc.tdragon.net/download
+- 僅 Windows：安裝 GCC 編譯套裝，請下載 [[http://tdm-gcc.tdragon.net/download][TDM-GCC]] 並安裝
 
 - 僅 Windows：下載編譯內建範例所需用的套件
     > go get -u -v golang.org/x/exp/shiny/driver/gldriver
     > go get -u -v golang.org/x/exp/shiny/screen
 
-- 僅 MacBook：安裝 GCC 編譯套裝，請下載 Xcode 並安裝
-.link https://itunes.apple.com/tw/app/xcode/id497799835?l=zh&mt=12
+- 僅 MacBook：安裝 GCC 編譯套裝，請下載 [[https://itunes.apple.com/tw/app/xcode/id497799835?l=zh&mt=12][Xcode]] 並安裝
 
 # --------------------------------------------------
 
@@ -312,8 +313,7 @@ https://www.facebook.com/oneleo760823
 
 * 可控制微處理器周邊如 LED、馬達、按鈕等物件（暫未完成）（1／2）
 
-- GoBot 官網
-.link https://gobot.io/
+- GoBot [[https://gobot.io/][官方網站]]
 
 - 下載 GoBot
     $ go get -d -u -v gobot.io/x/gobot/...
@@ -484,9 +484,9 @@ https://www.facebook.com/oneleo760823
 
 * 使用 Visual Studio Code 來開發 Go（4／5）
 
-- 強烈建議安裝的 Visual Studio Code 套件
+- 強烈建議安裝的 Visual Studio Code 套件：[[https://marketplace.visualstudio.com/items?itemName=Shan.code-settings-sync][Settings Sync]]
 
-- 按下 Shift + Ctrl（Command）+ P → 鍵入 Extensions: Install Extensions
+- 開啟 VSC 後按下 Shift + Ctrl（Command）+ P → 鍵入 Extensions: Install Extensions
 
 - [[https://marketplace.visualstudio.com/items?itemName=Shan.code-settings-sync][Settings Sync]]：129,450 installs（請參考官網設定，初次使用請先執行 sync: Upload，輸入 Token 後會出現 Gist，再將 Gist 輸入即可）
 
@@ -498,7 +498,7 @@ https://www.facebook.com/oneleo760823
 
 - 強烈建議設置的 Visual Studio Code 使用者設定
 
-- 按下 Shift + Ctrl（Command）+ P → 鍵入 Preferences: Open User Settings
+- 開啟 VSC 後按下 Shift + Ctrl（Command）+ P → 鍵入 Preferences: Open User Settings
 
         // --------------------------------------------------
         // 【通用設定】
@@ -584,13 +584,7 @@ https://www.facebook.com/oneleo760823
 
 - [[https://marketplace.visualstudio.com/items?itemName=donjayamanne.python][Python]]：961,722 installs
 
-- [[https://marketplace.visualstudio.com/items?itemName=Shan.code-settings-sync][Settings Sync]]：129,450 installs（請參考官網設定，初次使用請先執行 sync: Upload，輸入 Token 後會出現 Gist，再將 Gist 輸入即可）
-
-.image ./images/github1.png
-
-# --------------------------------------------------
-
-* 附件：我目前有安裝的 Visual Studio Code 套件（4／4）
+- [[https://marketplace.visualstudio.com/items?itemName=Shan.code-settings-sync][Settings Sync]]：129,450 installs
 
 - [[https://marketplace.visualstudio.com/items?itemName=slevesque.shader][Shader languages support for VS Code]]：6,767 installs
 
@@ -598,13 +592,17 @@ https://www.facebook.com/oneleo760823
 
 - [[https://marketplace.visualstudio.com/items?itemName=robertohuertasm.vscode-icons][vscode-icons]]：698,778 installs
 
+# --------------------------------------------------
+
+* 附件：我目前有安裝的 Visual Studio Code 套件（4／4）
+
 - [[https://marketplace.visualstudio.com/items?itemName=ms-iot.windowsiot][Windows Iot Core Extension for VS Code]]：3,386 installs
 
 - [[https://marketplace.visualstudio.com/items?itemName=ms-vscode.wordcount][Word Count]]：6,413 installs
 
-- 注：建議勿裝套件：[[https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify][beautify]]：507,143 installs（經測試，此套件會和 VSC 內建的 JSON 排版對衝，導致每次存檔排版會跑掉）
+- 注 1：建議勿裝套件：[[https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify][beautify]]：507,143 installs（經測試，此套件會和 VSC 內建的 JSON 排版對衝，導致每次存檔排版會跑掉）
 
-- 註：Visual Studio Code [[https://marketplace.visualstudio.com/search?target=VSCode&sortBy=Downloads][套件搜尋網頁]]（按照下載次數進行排序）
+- 註 2：我常用的 Visual Studio Code [[https://marketplace.visualstudio.com/search?target=VSCode&sortBy=Downloads][套件搜尋網頁]]（會按照使用者下載次數進行排序）
 
 # --------------------------------------------------
 
@@ -687,7 +685,7 @@ https://www.facebook.com/oneleo760823
 
 # --------------------------------------------------
 
-* 無論你從哪裡來都歡迎：FromXToGo（英文）
+* 無論你從哪裡來都歡迎一起 Go：FromXToGo（英文）
 .link https://github.com/golang/go/wiki/FromXToGo
 
 .image ./images/FromXToGo.png
@@ -738,10 +736,18 @@ https://www.facebook.com/oneleo760823
 
 - [[http://www.evanlin.com/][Evan Lin 大大的部落格文章]]
 
-- [[http://colobu.com/][鳥窩-大道至簡]]
-
 - [[http://blog.twsiyuan.com/][工程師的寫作練習]]
 
 - [[https://blog.wu-boy.com/][小惡魔 – 電腦技術 – 工作筆記 – AppleBOY]]
+
+- [[http://colobu.com/][鳥窩-大道至簡]]
+
+- [[http://studygolang.com/][Go 語言中文網]]
+
+- [[http://lib.csdn.net/base/go][Go 知識庫]]
+
+# --------------------------------------------------
+
+* 介紹結束 感謝各位
 
 # --------------------------------------------------
