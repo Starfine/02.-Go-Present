@@ -108,7 +108,7 @@ https://www.facebook.com/oneleo760823
 
 - PTT 鄉民自嘲：程式寫的好，要飯要到老（這是玩笑話）
 
-- debug 時就是牽當局者迷，常常會忘了最基本的結尾
+- debug 時就是當局者迷，常常會忘了最基本的結尾
 
 - 但，至少寫 Golang 可以少 de 一種 bug…
 
@@ -163,7 +163,7 @@ https://www.facebook.com/oneleo760823
 
 - 執行 present 指令
 
-    Windows: $ cd "~/Dropbox/Go/02. Go Present"
+    Windows: $ cd "$HOME/Dropbox/Go/02. Go Present"
     MacBook: > cd "%USERPROFILE%\Dropbox\Go\02. Go Present"
 
     $> present
@@ -300,7 +300,7 @@ https://www.facebook.com/oneleo760823
 
 * 附錄：如何將 Android 手機畫面投放至 Google Chrome？
 
-- 參考：電腦玩物部落閤
+- 參考：電腦玩物部落格
 .link http://www.playpcesor.com/2015/09/android-vysor.html Android 畫面操作投影電腦！ Vysor 簡報鏡射新神器
 
 - 在 Google Chrome 安裝 Vysor 擴充套件
@@ -355,7 +355,7 @@ https://www.facebook.com/oneleo760823
 
 - 安裝 [[https://golang.org/][Go]] 官方安裝程式
 
-- 「go get -u -v」套件下載指令需搭配 [[https://git-scm.com/downloads][Git]] 軟體，或已擁有 [[https://github.com/][GitHub]] 或 [[https://bitbucket.org][BitBucket]] 帳號的網友，強力推薦安裝 [[https://www.sourcetreeapp.com/][SourceTree]]（登入才會自動安裝 Git Command Line 工具）
+- 「go get -u -v」套件下載指令需搭配 [[https://git-scm.com/downloads][Git]] 軟體，或已擁有 [[https://github.com/][GitHub]] 或 [[https://bitbucket.org][BitBucket]] 帳號的網友強力推薦安裝 [[https://www.sourcetreeapp.com/][SourceTree]]（登入才會自動安裝 Git Command Line 工具）
 
 - 設定環境變數（即將於 [[https://talks.golang.org/2017/state-of-go.slide#19][Go 1.8 版]]變為自動設置）
     MacBook：$HOME/go
@@ -444,10 +444,15 @@ https://www.facebook.com/oneleo760823
 * 使用 Visual Studio Code 來開發 Go（1／5）
 
 - 參考：默司大主講的「好的 IDE 帶你上天堂」二篇 [[https://www.facebook.com/readbook999/videos/1820498281525927/][Part 1]] [[https://www.facebook.com/readbook999/videos/1821206701455085/][Part 2]] 
+
 - 安裝 [[https://code.visualstudio.com/][Visual Studio Code]]
+
 - 安裝 Visual Studio Code 的 [[https://marketplace.visualstudio.com/items?itemName=lukehoban.Go][Go Extension]]
-    1. 請在 VSC 內鍵入 Ctrl（or Command）+ Shift + P 鍵入「Extensions: Install Extensions」→ 鍵入「Go」
-    2. 或點選 VSC 的「View」→「Extensions」→ 鍵入「Go」
+
+    - 開啟 VSC 後鍵入 Ctrl（or Command）+ Shift + P 鍵入「Extensions: Install Extensions」→ 鍵入「Go」
+    - 或點選 VSC 的「View」→「Extensions」→ 鍵入「Go」
+
+- 註：相關 VSC 快捷鍵可參考官方文件：[[https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf][Windows]]、[[https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf][MacBook]]、[[https://code.visualstudio.com/shortcuts/keyboard-shortcuts-linux.pdf][Linux]]
 
 .image ./images/Go_for_Visual_Studio_Code.png 430 720
 
@@ -498,27 +503,23 @@ https://www.facebook.com/oneleo760823
 
 - 強烈建議設置的 Visual Studio Code 使用者設定
 
-- 開啟 VSC 後按下 Shift + Ctrl（Command）+ P → 鍵入 Preferences: Open User Settings
-
-        // --------------------------------------------------
-        // 【通用設定】
-        // --------------------------------------------------
+- 開啟VSC後按下 Shift + Ctrl（Command）+ P→鍵入 Preferences: Open User Settings
+        
+        // 【通用設定】        
         // Terminal 字型顯示大小
-        "terminal.integrated.fontSize": 16,
+            "terminal.integrated.fontSize": 16,
         // 控制已變更檔案的自動儲存功能。接受的值: "off"、"afterDelay"、"onFocusChange" (編輯器失去焦點)、"onWindowChange" (視窗失去焦點)。如果設為 "afterDelay"，您可以在 "files.autoSaveDelay" 中設定延遲。
-        "files.autoSave": "onFocusChange",
+            "files.autoSave": "onFocusChange",
         // 在儲存時設定檔案格式。格式器必須處於可用狀態、檔案不得自動儲存，且編輯器不得關機。
-        "editor.formatOnSave": true,
+            "editor.formatOnSave": true,
         // 調整編輯區字型大小
-        "editor.fontSize": 15,
+            "editor.fontSize": 15,
         // Controls after how many characters the editor will wrap to the next line. Setting this to 0 turns on viewport width wrapping (word wrapping). Setting this to -1 forces the editor to never wrap.
-        "editor.wrappingColumn": 75,
-        // --------------------------------------------------
+            "editor.wrappingColumn": 75,
         // 【Go 專用設定】
-        // --------------------------------------------------
         // 自動插入完整的建議參數
         // Complete functions with their parameter signature
-        "go.useCodeSnippetsOnFunctionSuggest": true,
+            "go.useCodeSnippetsOnFunctionSuggest": true,
 
 # --------------------------------------------------
 
@@ -649,7 +650,7 @@ https://www.facebook.com/oneleo760823
         // --------------------------------------------------
         // 【Settings Sync 專用設定（套件自動設定）】
         // --------------------------------------------------
-        "sync.gist": "ff3526b9934d3451f85ab5cdf84090ff",
+        "sync.gist": "ff0123456789abcdefedcba9876543ff",
         "sync.lastUpload": "2017-02-09T02:02:55.694Z",
         "sync.autoDownload": false,
         "sync.autoUpload": false,
@@ -681,14 +682,14 @@ https://www.facebook.com/oneleo760823
 
 - 注意：找尋相關資料時請使用關鍵字「[[https://www.google.com.tw/search?q=golang&oq=golang&aqs=chrome..69i57j69i60j69i61j69i60l3.247j0j1&sourceid=chrome&ie=UTF-8][golang]]」而非「go」
 
-.image ./images/GoogleGolang.png
+.image ./images/GoogleGolang.png 588 900
 
 # --------------------------------------------------
 
 * 無論你從哪裡來都歡迎一起 Go：FromXToGo（英文）
 .link https://github.com/golang/go/wiki/FromXToGo
 
-.image ./images/FromXToGo.png
+.image ./images/FromXToGo.png 716 900
 
 # --------------------------------------------------
 
@@ -718,6 +719,8 @@ https://www.facebook.com/oneleo760823
 
 - [[https://github.com/qyuhen/book][《Go 學習筆記》]] 中文電子書
 
+- 註：可以使用 Google 大神查找 [[https://www.google.com.tw/search?q=golang+filetype:pdf&source=lnt&tbs=lr:lang_1zh-CN%7Clang_1zh-TW&lr=lang_zh-CN%7Clang_zh-TW&sa=X&ved=0ahUKEwiJw_3d7oTSAhXHi5QKHcziBDMQpwUIEg&biw=1440&bih=794][filetype:pdf 的中文資源]]
+
 # --------------------------------------------------
 
 * 推薦 Facebook 社團
@@ -730,7 +733,7 @@ https://www.facebook.com/oneleo760823
 
 # --------------------------------------------------
 
-* 其他推薦好康
+* 其他推薦好康（1／2）
 
 - [[https://talks.golang.org/][官方新版本釋出前介紹]]
 
@@ -742,12 +745,38 @@ https://www.facebook.com/oneleo760823
 
 - [[http://colobu.com/][鳥窩-大道至簡]]
 
+- [[http://speakingbaicai.blog.51cto.com/][說話的白菜博客]]
+
+- [[http://www.nljb.net/][努力加貝]]
+
+- [[http://chuansong.me/account/golangchina][微信：Go 中國]]
+
+- [[https://xiequan.info/category/%E7%BC%96%E7%A8%8B/go/][謝權 SELF]]
+
+- [[https://www.itlipeng.cn/][IT LiPeng]]
+
+# --------------------------------------------------
+
+* 其他推薦好康（2／2）
+
 - [[http://studygolang.com/][Go 語言中文網]]
 
 - [[http://lib.csdn.net/base/go][Go 知識庫]]
 
+- [[https://segmentfault.com/t/golang][SegmentFault 社區 - Golang]]
+
+- [[http://wiki.jikexueyuan.com/list/go/][極客學院 - Go 語言]]
+
+- [[http://www.infoq.com/cn/go-web][InfoQ - Go]]
+
+- [[https://gocn.io/][GoCN Forum]]
+
+- [[http://blog.qiniu.com/][七牛雲]]
+
+- [[http://yanyiwu.com/][YanyiWu]]
+
 # --------------------------------------------------
 
-* 介紹結束 感謝各位
+* 介紹完畢，感謝各位！
 
 # --------------------------------------------------
