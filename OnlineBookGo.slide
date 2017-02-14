@@ -19,9 +19,11 @@ https://www.facebook.com/oneleo760823
 
 - 大學時受 C 影響最深
 
-- 覺得物聯網時代，除了介面，沒有學個可支撐大數據的後端會被淘汰
+- 覺得物聯網時代，沒有學個可支撐大數據的後端會被淘汰（能用此創業就太棒了！）
 
-- 開始不務正業找尋適合自己的後端語言（JavaScript 和 Go 對我來說都是重頭學）
+- 起先是從[[https://www.facebook.com/groups/1606498833013546/][線上 Unity 讀書會]]切入（因為呈現上要有個漂亮的、跨平台的前端）
+
+- 接著開始找尋適合自己的後端語言（無論 JavaScript 還是 Go 對我來說都是重頭學）
 
 # --------------------------------------------------
 
@@ -51,7 +53,9 @@ https://www.facebook.com/oneleo760823
 
 - NPM 開源貢獻值最高 [[https://github.com/tj][TJ Holowaychuk]] 決定從 [[https://www.zhihu.com/question/24373004][Node.JS 轉向 Go]]
 
-.image ./images/letsgo.jpg 322 500
+- [[https://devfest-taipei-3cbee.firebaseapp.com/schedule/day1?sessionId=108][2016-12-03 Google Taipei 開發者嘉年華]]時受 [[http://www.evanlin.com/][Evan Lin 大]]啟蒙
+
+.image ./images/letsgo.jpg 283 450
 
 # --------------------------------------------------
 
@@ -184,6 +188,8 @@ https://www.facebook.com/oneleo760823
 
 - 還可透過 Go 嵌入程式直接在投影片中建立小型 http 伺服器
 
+- 註：只能在 [[http://127.0.0.1:3999/OnlineBookGo.slide#15][http://127.0.0.1:3999/]] 中執行，原因後述
+
 .play -edit ./codePresent/http.go /OMIT START/,/OMIT END/
 
 # --------------------------------------------------
@@ -224,7 +230,7 @@ https://www.facebook.com/oneleo760823
 
 - JNI 可視為 JAVA 與 C/C++ 橋樑，NDK 則可將 JAVA、C/C++ 程式打包成單一 apk 檔
 
-.image ./images/HowGoMobileWorks.jpg
+.image ./images/HowGoMobileWorks.jpg 338 600
 
 .link http://www.slideshare.net/takuyaueda967/go-for-mobile-games refference: Go for Mobile Game
 
@@ -344,6 +350,30 @@ https://www.facebook.com/oneleo760823
 - SSH 至 Raspberry Pi 內執行檔案
     $ ssh pi@192.168.xxx.xxx
     $$ "/home/pi/work/src/gobot.io/x/gobot/examples/raspi_blink"
+
+- 未來解決方向：測試其他的 GARCH 參數。參數參考：[[https://golang.org/doc/install/source#environment][GoEnv]]
+
+# --------------------------------------------------
+
+* 附錄：Golang 的環境變數說明
+
+- 參考：[[http://wiki.jikexueyuan.com/project/go-command-tutorial/0.14.html][Go 命令教程 - 標準命令詳解]]
+
+- 可使用 _$>_ _go_ _env_ 指令來顯示所有 Go 相關的環境變數
+
+	名稱        說明
+	CGO_ENABLED 是否開啟 cgo 工具。
+	GOARCH      編譯程式時指定的作業系統。
+	GOBIN       可執行檔的路徑。即執行 go tool install 指令時的安裝位置。
+	GOCHAR      編譯程式時指定作業系統的架構。例 386 架構為 8、AMD64 架構為 6。
+	GOEXE       編譯出可執行檔的副檔名。
+	GOHOSTARCH  程式執行時的目標作業系統架構，為一常數。
+	GOOS        程序構建環境的目標操作系統。
+	GOHOSTOS    程式執行時的目標作業系統，為一常數。
+	GOPATH      使用者工作目錄路徑。
+	GORACE      用於平行計算時數據是否有衝突的檢測選項。
+	GOROOT      Go 語言的安裝目錄。
+	GOTOOLDIR   Go Tool 的存放目錄。其值為 $GOROOT/pkg/tool/$GOOS_$GOARCH。
 
 # --------------------------------------------------
 
@@ -725,17 +755,17 @@ https://www.facebook.com/oneleo760823
 
 * 推薦 Facebook 社團
 
-- Go程式語言 (Golang Taiwan, Gopher Taipei)
+- Go 程式語言 (Golang Taiwan, Gopher Taipei)
 .link https://www.facebook.com/groups/269001993248363/
 
-- 線上go讀書會
+- 線上 go 讀書會
 .link https://www.facebook.com/groups/1288435607857868
 
 # --------------------------------------------------
 
 * 其他推薦好康（1／2）
 
-- [[https://talks.golang.org/][官方新版本釋出前介紹]]
+- [[https://talks.golang.org/][官方新版本釋出前介紹]]（英文）
 
 - [[http://www.evanlin.com/][Evan Lin 大大的部落格文章]]
 
@@ -774,6 +804,24 @@ https://www.facebook.com/oneleo760823
 - [[http://blog.qiniu.com/][七牛雲]]
 
 - [[http://yanyiwu.com/][YanyiWu]]
+
+# --------------------------------------------------
+
+* 特別感謝
+
+# --------------------------------------------------
+
+* 本投影片製作特別感謝：
+
+- Evan 大：[[http://www.evanlin.com/til-golang-present/][來用 Golang Present 製造 Golang 專屬投影片]]、[[http://go-talks.appspot.com/github.com/kkdai/GolangTalks/gdgfest/gdgfest.slide][In Love with Golang]]
+
+- 相安大：[[https://www.facebook.com/groups/1288435607857868][線上 go 讀書會]]
+
+- 默司大：好的 IDE 帶你上天堂 [[https://www.facebook.com/readbook999/videos/1820498281525927/][Part 1]]、[[https://www.facebook.com/readbook999/videos/1821206701455085/][Part 2]]
+
+- Yu-han 大：[[https://youtu.be/0a4Lcpd1Dgw][五分鐘學會用 Present]]
+
+- 所有 Golang 社群夥伴：[[https://www.facebook.com/groups/269001993248363/][Go 程式語言]]、[[https://www.facebook.com/groups/1288435607857868][線上 go 讀書會]]
 
 # --------------------------------------------------
 
