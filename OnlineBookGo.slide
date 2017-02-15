@@ -37,7 +37,9 @@ https://www.facebook.com/oneleo760823
 
 - 除了效能外，打扣時爽度也很重要！
 
-.image ./images/go-fast.png 468 700
+.image ./images/go-fast.png 401 600
+
+.link https://talks.golang.org/2014/gocon-tokyo.slide#28 refference: Go: 90% Perfect, 100% of the time.
 
 # --------------------------------------------------
 
