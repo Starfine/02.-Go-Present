@@ -355,6 +355,8 @@ https://www.facebook.com/oneleo760823
 
 - 未來解決方向：測試其他的 GARCH 參數。參數參考：[[https://golang.org/doc/install/source#environment][GoEnv]]
 
+- Raspberry Pi 上跑 Go 的[[https://www.reddit.com/r/golang/comments/5o17c8/go_18_performance_improvements_on_arm_raspi/][效能參考]]（感謝 [[https://www.facebook.com/appleboy46][Bo-Yi Wu 大大]]熱心提供）
+
 # --------------------------------------------------
 
 * 附錄：Golang 的環境變數說明
@@ -376,6 +378,8 @@ https://www.facebook.com/oneleo760823
 	GORACE      用於平行計算時數據是否有衝突的檢測選項。
 	GOROOT      Go 語言的安裝目錄。
 	GOTOOLDIR   Go Tool 的存放目錄。其值為 $GOROOT/pkg/tool/$GOOS_$GOARCH。
+
+
 
 # --------------------------------------------------
 
