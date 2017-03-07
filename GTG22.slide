@@ -192,7 +192,7 @@ https://www.facebook.com/oneleo760823
 
 - 還可透過 Go 嵌入程式直接在投影片中建立小型 http 伺服器
 
-- 註：只能在 [[http://127.0.0.1:3999/OnlineBookGo.slide#15][http://127.0.0.1:3999/]] 中執行，原因後述
+- 註：只能在 [[http://127.0.0.1:3999/GTG22.slide#15][http://127.0.0.1:3999/]] 中執行，原因後述
 
 .play -edit ./codePresent/http.go /OMIT START/,/OMIT END/
 
@@ -224,13 +224,15 @@ https://www.facebook.com/oneleo760823
 
 - 注意事項 3：因 [[http://go-talks.appspot.com/github.com/Starfine/02.-Go-Present/GTG22.slide#15][http://go-talks.appspot.com]] 會擋 http port，所以執行投影片中的嵌入程式若有使用 net/http package 的程式會執行失敗，解決辦法為使用本地端 [[http://127.0.0.1:3999/GTG22.slide#15][http://127.0.0.1:3999]] 來投放
 
+- 注意事項 4：因 [[http://go-talks.appspot.com/github.com/Starfine/02.-Go-Present/GTG22.slide#25][http://go-talks.appspot.com]] 沒有建立 GCC 編譯環境，所以執行投影片中的嵌入程式若有使用 cgo 的程式會執行失敗，解決辦法為使用已安裝好 GCC 環境的本地端 [[http://127.0.0.1:3999/GTG22.slide#25][http://127.0.0.1:3999]] 來投放
+
 # --------------------------------------------------
 
 * 使用 Go Mobile 開發手機 APP（1／5）
 
 - 開發環境需可編譯 C/C++ 語言（要安裝 GCC 編譯套件）
 
-- 若要編譯 Android APP，要安裝 SDK、JDK、NDK，才可將 C 語言編譯成 apk 檔
+- 若要編譯 Android APP，要安裝 [[https://developer.android.com/studio][SDK]]、[[http://www.oracle.com/technetwork/java/javase/downloads][JDK]]、[[https://developer.android.com/ndk/downloads][NDK]]，才可將 Go 語言編譯成 apk 檔
 
 - JNI 可視為 JAVA 與 C/C++ 橋樑，NDK 則可將 JAVA、C/C++ 程式打包成單一 apk 檔
 
@@ -242,16 +244,37 @@ https://www.facebook.com/oneleo760823
 
 * 使用 Go Mobile 開發手機 APP（2／5）
 
-- NDK 下載後解壓縮並放在 $HOME/Library/Android/ 內
+- Windows 要特別注意 SDK、JDK、NDK 環境變數的設置（請參考本頁說明）
 
-.link https://developer.android.com/ndk/downloads/index.html
+- [[https://developer.android.com/ndk/downloads][NDK 下載]]後解壓縮並放在 %USERPROFILE%\AppData\Local\Android 內
 
-- 設定 MacBook 環境變數
+- 為保有彈性，將 JDK、NDK 建立捷徑後再設定 Windows 中的環境變數
+    
+    > mklink /D /J "%USERPROFILE%\AppData\Local\Android\ndk" "%USERPROFILE%\AppData\Local\Android\android-ndk-r14"
+    > mklink /D /J "C:\Program Files\Java\jdk" "C:\Program Files\Java\jdk1.8.0_121"
 
-    $ ln -s "$HOME/Library/Android/android-ndk-r13b" "$HOME/Library/Android/ndk"
+- 設定 Windows 環境變數（永久設置請至「系統」→「進階系統設定」→「環境變數」→「使用者變數」內設定）。
+
+    > set JAVA_HOME="C:\Program Files\Java\jdk"
+    > set ANDROID_SDK_HOME="%USERPROFILE%\AppData\Local\Android\sdk"
+    > set ANDROID_NDK_HOME="%USERPROFILE%\AppData\Local\Android\ndk"
+    > set PATH=%PATH%;%JAVA_HOME%\bin;%ANDROID_SDK_HOME%\build-tools;%ANDROID_SDK_HOME%\platform-tools
+    > set PATH=%PATH%;%ANDROID_SDK_HOME%\tools;%ANDROID_NDK_HOME%
+
+# --------------------------------------------------
+
+* 使用 Go Mobile 開發手機 APP（2／5）
+
+- MacBook 要特別注意 SDK、JDK、NDK 環境變數的設置（請參考本頁說明）
+
+- [[https://developer.android.com/ndk/downloads][NDK 下載]]後解壓縮並放在 $HOME/Library/Android/ 內
+
+- 為保有彈性，將 NDK 建立捷徑後再設定 MacBook 中的環境變數
+
+    $ ln -s "$HOME/Library/Android/android-ndk-r14" "$HOME/Library/Android/ndk"
     $ vim $HOME/.bash_profile
 
-- .bash_profile
+- "$HOME/.bash_profile" 裡需置入如下內容，並使用 $ source 指令執行之，才會生效
 
 .code ./codePresent/.bash_profile(Android)
 
@@ -265,13 +288,13 @@ https://www.facebook.com/oneleo760823
 
 - 安裝 GCC 編譯套件，請下載 [[http://tdm-gcc.tdragon.net/download][TDM-GCC]] 並安裝
 
-- 下載編譯內建範例所需用的套件
+- 下載 Windows 裡要編譯 Go Mobile 範例所需套件
     > go get -u -v golang.org/x/exp/shiny/driver/gldriver
     > go get -u -v golang.org/x/exp/shiny/screen
 
 ------------------------- MacBook only -------------------------
 
-- 安裝 GCC 編譯套件，請下載 [[https://itunes.apple.com/tw/app/xcode/id497799835?l=zh&mt=12][Xcode]] 並安裝
+- 安裝 GCC 編譯套件，MacBook 裡請下載 [[https://itunes.apple.com/tw/app/xcode/id497799835?l=zh&mt=12][Xcode]] 並安裝，即建立好 GCC 環境
 
 ------------------------- Windows & MacBook both -------------------------
 
@@ -282,8 +305,7 @@ https://www.facebook.com/oneleo760823
 
 * 使用 Go Mobile 開發手機 APP（4／5）
 
-- Go Mobile 官網
-.link https://godoc.org/golang.org/x/mobile/cmd/gomobile
+- Go Mobile [[https://godoc.org/golang.org/x/mobile/cmd/gomobile][官網連結]]
 
 - 下載 GoMobile
     $> go get -u -v golang.org/x/mobile/cmd/gomobile
@@ -291,6 +313,11 @@ https://www.facebook.com/oneleo760823
 - 安裝 GoMobile 編譯工具
     Windows: > gomobile init -v
     MacBook: $ gomobile init -v -ndk "$ANDROID_NDK_HOME"
+
+- 註：查看接在電腦上的 Android 設備（adb 相關指令可[[http://style77125tech.pixnet.net/blog/post/17556680-%5Bandroid%5D-%E4%BD%BF%E7%94%A8adb%E6%8C%87%E4%BB%A4][參考這篇]]）
+    $> adb devices      # 查詢目前有多少個 Android 裝置
+    $> adb kill-server  # 若無法查詢則關掉 adb 伺服器再試一次
+    $> adb help         # 顯示 adb 指令相關參數
 
 # --------------------------------------------------
 
@@ -330,9 +357,9 @@ https://www.facebook.com/oneleo760823
 
 # --------------------------------------------------
 
-* 可將 C 語言嵌入到 Go 裡頭（1／2）
+* 可將 C 語言嵌入到 Go 裡頭（1／3）
 
-- 注意事項 1：在 Windows 或 MacBook 均需要安裝 GCC 編譯套裝，請參考 [[http://127.0.0.1:3999/GTG22.slide#21][第 21 頁]]。安裝完成後請在所屬命令列中輸入下面指令確定己完成安裝
+- 注意事項 1：在 Windows 或 MacBook 均需要安裝 GCC 編譯套裝，請參考 [[http://127.0.0.1:3999/GTG22.slide#20][第 20 頁]]。安裝完成後請在所屬命令列中輸入下面指令確定己完成安裝
 
     $> gcc --version
 
@@ -353,11 +380,27 @@ https://www.facebook.com/oneleo760823
 
 # --------------------------------------------------
 
-* 可將 C 語言嵌入到 Go 裡頭（2／2）
+* 可將 C 語言嵌入到 Go 裡頭（2／3）
 
 - 用 C 寫一個米字金字塔
 
 .play -edit ./codePresent/cgo.go /OMIT START/,/OMIT END/
+
+# --------------------------------------------------
+
+* 可將 C 語言嵌入到 Go 裡頭（3／3）
+
+- 編譯程式
+    Windows: > go build -o "%USERPROFILE%\GoDr\Go\02. Go Present\codePresent\cgo.exe" "%USERPROFILE%\GoDr\Go\02. Go Present\codePresent\cgo.go"
+    MacBook: $ go build -o "$HOME/GoDr/Go/02. Go Present/codePresent/cgo" "$HOME/GoDr/Go/02. Go Present/codePresent/cgo.go"
+
+- 執行編譯好的程式
+    Windows: > . "%USERPROFILE%\GoDr\Go\02. Go Present\codePresent\cgo.exe"
+    MacBook: $ "$HOME/GoDr/Go/02. Go Present/codePresent/cgo"
+
+- 或直接使用 $> go run 指令執行
+    Windows: > go run "%USERPROFILE%\GoDr\Go\02. Go Present\codePresent\cgo.go"
+    MacBook: $ go run "$HOME/GoDr/Go/02. Go Present/codePresent/cgo.go"
 
 ## --------------------------------------------------
 #
@@ -405,7 +448,7 @@ https://www.facebook.com/oneleo760823
 
 - Arduino [[https://www.arduino.cc/][官方網站]]：（專屬 IDE [[https://www.arduino.cc/en/guide/Windows?setlang=cn][for Windows]]、[[https://www.arduino.cc/en/guide/macOSX?setlang=cn][for MacBook]]）
 
-- 安裝 MacBook 套件安裝工具 [[https://brew.sh/index_zh-tw.html][Homebrew]]
+- 安裝 MacBook 套件安裝工具 [[https://brew.sh/index_zh-tw.html][Homebrew]]（Windows 不適用本範例）
     $ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 - 安裝微控器硬體掃描及韌體上傳工具 [[http://gort.io/][GORT]]
@@ -414,7 +457,7 @@ https://www.facebook.com/oneleo760823
 - 掃描接在 MacBook 上的 USB 裝置（本例 tty.usbmodem14241 為 Arduino）
     $ gort scan serial
         /dev/cu.Bluetooth-Incoming-Port		/dev/tty.Bluetooth-Incoming-Port
-        /dev/cu.usbmodem14241			/dev/tty.usbmodem14241
+        /dev/cu.usbmodem14241	        	/dev/tty.usbmodem14241
 
     $ gort arduino install
 
@@ -537,11 +580,11 @@ $ "$HOME/go/src/gobot.io/x/gobot/examples/firmata_my_blink"
     > set GOROOT=C:\Go\
     > set PATH=%PATH%;C:\Go\bin
 
-- 我們還需要另外設置「工作目錄」至 Windows 使用者變數內（永久設置請至「系統」→「進階系統設定」→「環境變數」內設定）。工作目錄可自行定義但一定要設置。另外往後透過「go get -u -v」下載的套件均存放在 %GOPATH%\src 裡
+- 我們還需要另外設置「工作目錄」至 Windows 使用者變數內（永久設置請至「系統」→「進階系統設定」→「環境變數」→「使用者變數」內設定）。工作目錄可自行定義但一定要設置。另外往後透過「go get -u -v」下載的套件均存放在 %GOPATH%\src 裡。
     > set GOPATH=%USERPROFILE%\work
     > set PATH=%PATH%;%GOPATH%\bin
 
-.image ./images/Environment_01.png
+.image ./images/Environment_01.png _ 600
 
 # --------------------------------------------------
 
@@ -585,7 +628,7 @@ $ "$HOME/go/src/gobot.io/x/gobot/examples/firmata_my_blink"
 
 - 雖然不用再設置 GOPATH 變數，但仍要將工作目錄內的 bin 目錄加到 PATH 變數中
 
-- Windows 請至「系統」→「進階系統設定」→「環境變數」內設定
+- Windows 請至「系統」→「進階系統設定」→「環境變數」→「使用者變數」內設定
     > set PATH=%PATH%;%USERPROFILE%\go\bin
 
 - 測試是否設定完成
@@ -665,7 +708,7 @@ $ "$HOME/go/src/gobot.io/x/gobot/examples/firmata_my_blink"
 - 註：執行 Go Package 更新
 
     $> go clean
-    $> go go get -u -v all
+    $> go get -u -v all
 
 # --------------------------------------------------
 
