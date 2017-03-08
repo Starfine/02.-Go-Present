@@ -63,21 +63,23 @@ https://www.facebook.com/oneleo760823
 
 * 為什麼想學 GO？（3／3）
 
-- 每列句尾不需用分號結束
+- [[http://127.0.0.1:3999/GTG22.slide#8][【Page. 08】]]存檔時自動排版（gofmt）
 
-- 存檔時自動排版（gofmt）
+- [[http://127.0.0.1:3999/GTG22.slide#10][【Page. 10】]]每列句尾不需用分號結束
 
-- 內建說明文件產生器（godoc）
+- [[http://127.0.0.1:3999/GTG22.slide#11][【Page. 11】]]內建說明文件產生器（godoc）
 
-- 內建 Testing 工具（go test）
+- [[http://127.0.0.1:3999/GTG22.slide#12][【Page. 12】]]內建 Testing 工具（go test）
 
-- 可撰寫投影片（present）
+- [[http://127.0.0.1:3999/GTG22.slide#13][【Page. 13】]]可撰寫投影片（present）
 
-- 可撰寫手機 APP（gomobile）
+- [[http://127.0.0.1:3999/GTG22.slide#18][【Page. 18】]]可撰寫手機 APP（gomobile）✔
 
-- 可將 C 語言嵌入到 Go 裡頭
+- [[http://127.0.0.1:3999/GTG22.slide#26][【Page. 26】]]可將 C 語言嵌入到 Go 裡頭（cgo）✔
 
-- 可控制微處理器周邊如 LED、馬達、按鈕等物件（gobot）
+- [[http://127.0.0.1:3999/GTG22.slide#29][【Page. 29】]]可控制微處理器周邊如 LED、馬達、按鈕等物件（gobot）✔
+
+- 參考影片：2017/02/14[[https://youtu.be/AthOhhD0T6g][【線上讀書會】Golang 環境設定與安裝]]
 
 # --------------------------------------------------
 
@@ -228,7 +230,7 @@ https://www.facebook.com/oneleo760823
 
 # --------------------------------------------------
 
-* 使用 Go Mobile 開發手機 APP（1／5）
+* 使用 Go Mobile 開發手機 APP（1／7）
 
 - 開發環境需可編譯 C/C++ 語言（要安裝 GCC 編譯套件）
 
@@ -242,7 +244,9 @@ https://www.facebook.com/oneleo760823
 
 # --------------------------------------------------
 
-* 使用 Go Mobile 開發手機 APP（2／5）
+* 使用 Go Mobile 開發手機 APP（2／7）
+
+---------------------------------------- Windows only ----------------------------------------
 
 - Windows 要特別注意 SDK、JDK、NDK 環境變數的設置（請參考本頁說明）
 
@@ -250,7 +254,8 @@ https://www.facebook.com/oneleo760823
 
 - 為保有彈性，將 JDK、NDK 建立捷徑後再設定 Windows 中的環境變數
     
-    > mklink /D /J "%USERPROFILE%\AppData\Local\Android\ndk" "%USERPROFILE%\AppData\Local\Android\android-ndk-r14"
+    > mklink /D /J "%USERPROFILE%\AppData\Local\Android\ndk"
+        "%USERPROFILE%\AppData\Local\Android\android-ndk-r14"
     > mklink /D /J "C:\Program Files\Java\jdk" "C:\Program Files\Java\jdk1.8.0_121"
 
 - 設定 Windows 環境變數（永久設置請至「系統」→「進階系統設定」→「環境變數」→「使用者變數」內設定）。
@@ -263,7 +268,9 @@ https://www.facebook.com/oneleo760823
 
 # --------------------------------------------------
 
-* 使用 Go Mobile 開發手機 APP（2／5）
+* 使用 Go Mobile 開發手機 APP（3／7）
+
+---------------------------------------- MacBook only ----------------------------------------
 
 - MacBook 要特別注意 SDK、JDK、NDK 環境變數的設置（請參考本頁說明）
 
@@ -282,9 +289,9 @@ https://www.facebook.com/oneleo760823
 
 # --------------------------------------------------
 
-* 使用 Go Mobile 開發手機 APP（3／5）
+* 使用 Go Mobile 開發手機 APP（4／7）
 
-------------------------- Windows only -------------------------
+---------------------------------------- Windows only ----------------------------------------
 
 - 安裝 GCC 編譯套件，請下載 [[http://tdm-gcc.tdragon.net/download][TDM-GCC]] 並安裝
 
@@ -292,18 +299,18 @@ https://www.facebook.com/oneleo760823
     > go get -u -v golang.org/x/exp/shiny/driver/gldriver
     > go get -u -v golang.org/x/exp/shiny/screen
 
-------------------------- MacBook only -------------------------
+---------------------------------------- MacBook only ----------------------------------------
 
 - 安裝 GCC 編譯套件，MacBook 裡請下載 [[https://itunes.apple.com/tw/app/xcode/id497799835?l=zh&mt=12][Xcode]] 並安裝，即建立好 GCC 環境
 
-------------------------- Windows & MacBook both -------------------------
+---------------------------------------- Windows & MacBook both ----------------------------------------
 
 - 安裝完成 GCC 後請使用下面指令確認
     $> gcc --version
 
 # --------------------------------------------------
 
-* 使用 Go Mobile 開發手機 APP（4／5）
+* 使用 Go Mobile 開發手機 APP（5／7）
 
 - Go Mobile [[https://godoc.org/golang.org/x/mobile/cmd/gomobile][官網連結]]
 
@@ -321,7 +328,7 @@ https://www.facebook.com/oneleo760823
 
 # --------------------------------------------------
 
-* 使用 Go Mobile 開發手機 APP（5／5）
+* 使用 Go Mobile 開發手機 APP（6／7）
 
 - 在本機執行測試
     Windows: > cd "%USERPROFILE%\go\src\golang.org\x\mobile\example\basic"
@@ -344,9 +351,9 @@ https://www.facebook.com/oneleo760823
 
 # --------------------------------------------------
 
-* 使用 Go Mobile 開發手機 APP（5／5）
+* 使用 Go Mobile 開發手機 APP（7／7）
 
-- 防爆展示影片，環境為 Windows。
+- 防爆展示影片，環境為 Windows
 
 .video ./videos/GoMobileFlappyDemo.mp4 video/mp4 425 _
 
@@ -367,7 +374,7 @@ https://www.facebook.com/oneleo760823
 
 * 可將 C 語言嵌入到 Go 裡頭（1／3）
 
-- 注意事項 1：在 Windows 或 MacBook 均需要安裝 GCC 編譯套裝，請參考 [[http://127.0.0.1:3999/GTG22.slide#20][第 20 頁]]。安裝完成後請在所屬命令列中輸入下面指令確定己完成安裝
+- 注意事項 1：在 Windows 或 MacBook 均需要安裝 GCC 編譯套裝，請參考 [[http://127.0.0.1:3999/GTG22.slide#21][第 21 頁]]。安裝完成後請在所屬命令列中輸入下面指令確定己完成安裝
 
     $> gcc --version
 
@@ -452,30 +459,30 @@ https://www.facebook.com/oneleo760823
 #
 # --------------------------------------------------
 
-* 可控制微處理器周邊如 LED、馬達、按鈕等物件（Arduino）（1／6）
+* 可控制微處理器周邊如 LED、馬達、按鈕等物件（Arduino）（1／5）
 
-- Arduino [[https://www.arduino.cc/][官方網站]]：（專屬 IDE [[https://www.arduino.cc/en/guide/Windows?setlang=cn][for Windows]]、[[https://www.arduino.cc/en/guide/macOSX?setlang=cn][for MacBook]]）
+- 本處範例僅適用於 MacBook，Windows 建議可用 [[https://store.docker.com/editions/community/docker-ce-desktop-windows][Docker]] 處理
 
-- 安裝 MacBook 套件安裝工具 [[https://brew.sh/index_zh-tw.html][Homebrew]]（Windows 不適用本範例）
-    $ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+# - Arduino [[https://www.arduino.cc/][官方網站參考]]（專屬 IDE [[https://www.arduino.cc/en/guide/Windows?setlang=cn][for Windows]]、[[https://www.arduino.cc/en/guide/macOSX?setlang=cn][for MacBook]]）
 
-- 安裝微控器硬體掃描及韌體上傳工具 [[http://gort.io/][GORT]]
+- 安裝 MacBook 套件安裝工具 [[https://brew.sh/index_zh-tw.html][Homebrew]]
+    $ /usr/bin/ruby -e
+        "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+- 使用 Homebrew 安裝微控器硬體掃描及韌體上傳工具 [[http://gort.io/][GORT]]
     $ brew install hybridgroup/tools/gort
 
 - 掃描接在 MacBook 上的 USB 裝置（本例 tty.usbmodem14241 為 Arduino）
-    $ gort scan serial
-        /dev/cu.Bluetooth-Incoming-Port		/dev/tty.Bluetooth-Incoming-Port
-        /dev/cu.usbmodem14241	        	/dev/tty.usbmodem14241
-
-    $ gort arduino install
+	$ gort scan serial
+		/dev/tty.Bluetooth-Incoming-Port	/dev/tty.usbmodem14241
+	$ gort arduino install
 
 - 將 Arduino 接上 MacBook 後執行下列指令
-
     $ gort arduino upload firmata /dev/tty.usbmodem14241
 
 # --------------------------------------------------
 
-* 可控制微處理器周邊如 LED、馬達、按鈕等物件（Arduino）（2／6）
+* 可控制微處理器周邊如 LED、馬達、按鈕等物件（Arduino）（2／5）
 
 - GoBot [[https://gobot.io/][官方網站]]
 
@@ -485,42 +492,49 @@ https://www.facebook.com/oneleo760823
 - 安裝 Arduino GoLang 開發環境
     $ go install gobot.io/x/gobot/platforms/firmata
 
-- GoBot 常用 API 連結參考：
-.link https://gowalker.org/gobot.io/x/gobot/drivers/gpio
+- 註：GoBot for Arduino 常用 API 連結參考：
+- 1. [[https://gowalker.org/gobot.io/x/gobot][gobot.io/x/gobot]]
+- 2. [[https://gowalker.org/gobot.io/x/gobot/drivers/gpio][gobot.io/x/gobot/drivers/gpio]]
+- 3. [[https://gowalker.org/gobot.io/x/gobot/platforms/firmata][gobot.io/x/gobot/platforms/firmata]]
 
 # --------------------------------------------------
 
-* 可控制微處理器周邊如 LED、馬達、按鈕等物件（Arduino）（3／6）
+* 可控制微處理器周邊如 LED、馬達、按鈕等物件（Arduino）（3／5）
 
 - 讓 Arduino 內建的 13 號燈閃爍
 
-    $ go build -o "$HOME/go/src/gobot.io/x/gobot/examples/firmata_blink" "$HOME/go/src/gobot.io/x/gobot/examples/firmata_blink.go"
+    $ go build -o "$HOME/go/src/gobot.io/x/gobot/examples/firmata_blink"
+        "$HOME/go/src/gobot.io/x/gobot/examples/firmata_blink.go"
+
     $ "$HOME/go/src/gobot.io/x/gobot/examples/firmata_blink"
 
-- 改寫 GoBot 內建程式碼（下一頁）
+- 改寫 GoBot 內建程式碼
 
-    $ sudo cp -p "$HOME/go/src/gobot.io/x/gobot/examples/firmata_blink.go" "$HOME/go/src/gobot.io/x/gobot/examples/firmata_my_blink.go"
+    $ sudo cp -p "$HOME/go/src/gobot.io/x/gobot/examples/firmata_blink.go"
+        "$HOME/go/src/gobot.io/x/gobot/examples/firmata_my_blink.go"
+
     $ sudo vim "$HOME/go/src/gobot.io/x/gobot/examples/firmata_my_blink.go"
 
-# --------------------------------------------------
-
-* 可控制微處理器周邊如 LED、馬達、按鈕等物件（Arduino）（4／6）
+- 改寫的內容請參考 [[https://github.com/Starfine/02.-Go-Present/blob/master/GoBotDemo/firmata_my_blink.go][./GoBotDemo/firmata_my_blink.go]]
 
 .code -edit ./GoBotDemo/firmata_my_blink.go /OMIT START/,/OMIT END/
 
 # --------------------------------------------------
 
-* 可控制微處理器周邊如 LED、馬達、按鈕等物件（Arduino）（5／6）
+* 可控制微處理器周邊如 LED、馬達、按鈕等物件（Arduino）（4／5）
 
-$ go build -o "$HOME/go/src/gobot.io/x/gobot/examples/firmata_my_blink" "$HOME/go/src/gobot.io/x/gobot/examples/firmata_my_blink.go"
+- 執行改寫後的程式碼
 
-$ "$HOME/go/src/gobot.io/x/gobot/examples/firmata_my_blink"
+    $ go build -o "$HOME/go/src/gobot.io/x/gobot/examples/firmata_my_blink"
+        "$HOME/go/src/gobot.io/x/gobot/examples/firmata_my_blink.go"
 
-.video ./videos/ControlArduinoWithGoBot.mp4 video/mp4 425 _
+    $ "$HOME/go/src/gobot.io/x/gobot/examples/firmata_my_blink"
+
+.video ./videos/ControlArduinoWithGoBot.mp4 video/mp4 375 _
 
 # --------------------------------------------------
 
-* 可控制微處理器周邊如 LED、馬達、按鈕等物件（Arduino）（6／6）
+* 可控制微處理器周邊如 LED、馬達、按鈕等物件（Arduino）（5／5）
 
 - 可以用 GoBot 簡單達到應用可能有：
 
@@ -966,10 +980,10 @@ $ "$HOME/go/src/gobot.io/x/gobot/examples/firmata_my_blink"
 
 * 推薦 Facebook 社團
 
-- Go 程式語言 (Golang Taiwan, Gopher Taipei)
+- Go 程式語言 (Golang Taiwan, Gopher Taipei) - Evan 大每月一場 GTG 盛會
 .link https://www.facebook.com/groups/269001993248363/
 
-- 線上 go 讀書會
+- 線上 go 讀書會 - 相安大於 2017/02/24 開跑，不定期將有線上教學直播
 .link https://www.facebook.com/groups/1288435607857868
 
 # --------------------------------------------------
