@@ -648,7 +648,7 @@ https://www.facebook.com/oneleo760823
 
 * 設定 Go 1.8 版的環境變數
 
-- 雖然不用再設置 GOPATH 變數，但仍要將工作目錄內的 bin 目錄加到 PATH 變數中
+- 雖然不用設置 GOPATH 變數，但仍要將工作目錄內的 bin 目錄加到 PATH 變數中
 
 - Windows 請至「系統」→「進階系統設定」→「環境變數」→「使用者變數」內設定
     > set PATH=%PATH%;%USERPROFILE%\go\bin
@@ -691,9 +691,11 @@ https://www.facebook.com/oneleo760823
 
 # --------------------------------------------------
 
-* 使用 Visual Studio Code 來開發 Go（1／5）
+* 使用 Visual Studio Code 來開發 Go（1／6）
 
-- 參考：默司大主講的「好的 IDE 帶你上天堂」二篇 [[https://youtu.be/rsaqfyDLzQM][Part 1]] [[https://youtu.be/zGqICko2_uo][Part 2]]
+- [[https://blog.golang.org/survey2016-results#TOC_4.][2016 年 Golang 官方統計]]使用 VSCode IDE 開發 Go 佔總數第二名（第一名為 Vim）
+
+- 參考：默司大主講的「好的 IDE 帶你上天堂」二篇 [[https://youtu.be/rsaqfyDLzQM][Part 1]] [[https://youtu.be/zGqICko2_uo][Part 2]]、微軟 [[http://ow.ly/6fFL309fBoP][MVP 分享]]
 
 - 安裝 [[https://code.visualstudio.com/][Visual Studio Code]]
 
@@ -708,7 +710,21 @@ https://www.facebook.com/oneleo760823
 
 # --------------------------------------------------
 
-* 使用 Visual Studio Code 來開發 Go（2／5）
+* 使用 Visual Studio Code 來開發 Go（2／6）
+
+- 經測試，若要啟用 VSC Go Snippets 功能仍需設置 GOPATH 環境變數
+
+- Windows 請至「系統」→「進階系統設定」→「環境變數」內設定
+    > set GOPATH=%USERPROFILE%\go
+
+- MacBook 請將下方指令設定至 $HOME/.bash_profile 裡，再執行 $ source $HOME/.bash_profile 指令使其生效
+    $ export GOPATH="$HOME/go"
+
+.image ./images/GoSnippets.png 400 _
+
+# --------------------------------------------------
+
+* 使用 Visual Studio Code 來開發 Go（3／6）
 
 - 安裝必要的相依套件，執行下列指令
 
@@ -734,7 +750,7 @@ https://www.facebook.com/oneleo760823
 
 # --------------------------------------------------
 
-* 使用 Visual Studio Code 來開發 Go（3／5）
+* 使用 Visual Studio Code 來開發 Go（4／6）
 
 - 來用 Visual Studio Code 來開發 Go 吧！
 
@@ -742,7 +758,7 @@ https://www.facebook.com/oneleo760823
 
 # --------------------------------------------------
 
-* 使用 Visual Studio Code 來開發 Go（4／5）
+* 使用 Visual Studio Code 來開發 Go（5／6）
 
 - 強烈建議安裝的 Visual Studio Code 套件：[[https://marketplace.visualstudio.com/items?itemName=Shan.code-settings-sync][Settings Sync]]
 
@@ -754,7 +770,7 @@ https://www.facebook.com/oneleo760823
 
 # --------------------------------------------------
 
-* 使用 Visual Studio Code 來開發 Go（5／5）
+* 使用 Visual Studio Code 來開發 Go（6／6）
 
 - 強烈建議設置的 Visual Studio Code 使用者設定
 
@@ -769,8 +785,9 @@ https://www.facebook.com/oneleo760823
             "editor.formatOnSave": true,
         // 調整編輯區字型大小
             "editor.fontSize": 15,
-        // Controls after how many characters the editor will wrap to the next line. Setting this to 0 turns on viewport width wrapping (word wrapping). Setting this to -1 forces the editor to never wrap.
-            "editor.wrappingColumn": 75,
+        // 調整編輯區每列字數
+            "editor.wordWrap": "wordWrapColumn",
+            "editor.wordWrapColumn": 75,
         // 【Go 專用設定】
         // 自動插入完整的建議參數
         // Complete functions with their parameter signature
@@ -872,26 +889,34 @@ https://www.facebook.com/oneleo760823
         // 【通用設定】
         // --------------------------------------------------
         // Terminal 字型顯示大小
-        "terminal.integrated.fontSize": 16,
+        "terminal.integrated.fontSize": 15,
         // 控制已變更檔案的自動儲存功能。接受的值: "off"、"afterDelay"、"onFocusChange" (編輯器失去焦點)、"onWindowChange" (視窗失去焦點)。如果設為 "afterDelay"，您可以在 "files.autoSaveDelay" 中設定延遲。
         "files.autoSave": "onFocusChange",
         // 在儲存時設定檔案格式。格式器必須處於可用狀態、檔案不得自動儲存，且編輯器不得關機。
         "editor.formatOnSave": true,
         // 調整編輯區字型大小
-        "editor.fontSize": 15,
-        // Controls after how many characters the editor will wrap to the next line. Setting this to 0 turns on viewport width wrapping (word wrapping). Setting this to -1 forces the editor to never wrap.
-        "editor.wrappingColumn": 75,
+        "editor.fontSize": 16,
+        // Controls how lines should wrap. Can be:
+        //  - 'off' (disable wrapping),
+        //  - 'on' (viewport wrapping),
+        //  - 'wordWrapColumn' (wrap at `editor.wordWrapColumn`) or
+        //  - 'bounded' (wrap at minimum of viewport and `editor.wordWrapColumn`).
+        "editor.wordWrap": "wordWrapColumn",
+        // Controls the wrapping column of the editor when `editor.wordWrap` is 'wordWrapColumn' or 'bounded'.
+        "editor.wordWrapColumn": 75,
+
+# --------------------------------------------------
+
+* 附件：我目前的 Visual Studio Code 使用者設定（2／3）
+
         // --------------------------------------------------
         // 【Go 專用設定】
         // --------------------------------------------------
         // 自動插入完整的建議參數
         // Complete functions with their parameter signature
         "go.useCodeSnippetsOnFunctionSuggest": true,
-
-# --------------------------------------------------
-
-* 附件：我目前的 Visual Studio Code 使用者設定（2／3）
-
+        // "go.gopath": "%USERPROFILE%\\go",
+        // "go.gopath": "$HOME/go",
         // --------------------------------------------------
         // 【Node.JS 專用設定】
         // --------------------------------------------------
@@ -902,25 +927,28 @@ https://www.facebook.com/oneleo760823
         // --------------------------------------------------
         // 控制編輯器是否顯示程式碼濾鏡
         "editor.codeLens": false,
-        // --------------------------------------------------
-        // 【Settings Sync 專用設定（套件自動設定）】
-        // --------------------------------------------------
-        "sync.gist": "ff0123456789abcdefedcba9876543ff",
-        "sync.lastUpload": "2017-02-09T02:02:55.694Z",
-        "sync.autoDownload": false,
-        "sync.autoUpload": false,
-        "sync.lastDownload": "1970-01-01T00:00:00.000Z",
-        "sync.version": 243,
-        "sync.showSummary": true,
-        "sync.forceDownload": false,
-        "sync.workspaceSync": false,
-        "sync.anonymousGist": false,
-
 
 # --------------------------------------------------
 
 * 附件：我目前的 Visual Studio Code 使用者設定（3／3）
 
+        // --------------------------------------------------
+        // 【Settings Sync 專用設定（套件自動設定）】
+        // --------------------------------------------------
+        "sync.gist": "ff3526b9934d3451f85ab5cdf84090ff",
+        "sync.lastUpload": "2017-03-15T03:22:16.680Z",
+        "sync.autoDownload": false,
+        "sync.autoUpload": false,
+        "sync.lastDownload": "2017-03-07T01:27:17.407Z",
+        "sync.version": 251,
+        "sync.showSummary": true,
+        "sync.forceDownload": true,
+        "sync.anonymousGist": false,
+        // --------------------------------------------------
+        // 【vscode-icons 專用設定（套件自動設定）】
+        // --------------------------------------------------
+        // Specifies the icon theme used in the workbench.
+        "workbench.iconTheme": "vscode-icons",
         // --------------------------------------------------
         // 【結尾】
         // --------------------------------------------------
@@ -948,12 +976,14 @@ https://www.facebook.com/oneleo760823
 
 # --------------------------------------------------
 
-* 最常用的網站：API 查詢與熱門 GitHub 套件搜尋
+* 最常用的網站參考：＊ API 查詢與 ＄ 熱門 GitHub 套件搜尋
 
-- [[https://godoc.org/][GoDoc]]
-- [[https://gowalker.org/][GoWalker]]
-- [[https://golanglibs.com/][GoLangLibs]]
-
+- ＊ [[https://godoc.org/][GoDoc]]
+- ＊ [[https://gowalker.org/][GoWalker]]
+- ＄ [[https://golanglibs.com/][GoLangLibs]]
+- ＄ [[https://awesome-go.com/][Awesome Go]]
+- ＄ [[https://github.com/trending/go][Trending in open source]]
+- ＄ [[https://goreportcard.com/][Go Report Card]]
 .image ./images/GoWalker.png 609 900
 
 # --------------------------------------------------
@@ -1004,15 +1034,17 @@ https://www.facebook.com/oneleo760823
 
 - [[http://speakingbaicai.blog.51cto.com/][說話的白菜博客]]
 
+- [[http://www.flysnow.org/][飛雪無情的博客]]
+
 - [[http://www.nljb.net/][努力加貝]]
 
 - [[http://chuansong.me/account/golangchina][微信：Go 中國]]
 
-- [[https://xiequan.info/category/%E7%BC%96%E7%A8%8B/go/][謝權 SELF]]
-
 # --------------------------------------------------
 
 * 其他推薦好康（2／2）
+
+- [[https://xiequan.info/category/%E7%BC%96%E7%A8%8B/go/][謝權 SELF]]
 
 - [[https://www.itlipeng.cn/][IT LiPeng]]
 

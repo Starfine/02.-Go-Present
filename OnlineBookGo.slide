@@ -322,12 +322,6 @@ https://www.facebook.com/oneleo760823
 
 # --------------------------------------------------
 
-* 可將 C 語言嵌入到 Go 裡頭
-
-- 在 Windows 或 MacBook 均需要安裝 GCC 編譯套裝，請參考 [[http://127.0.0.1:3999/OnlineBookGo.slide#21][第 21 頁]]
-
-# --------------------------------------------------
-
 * 可控制微處理器周邊如 LED、馬達、按鈕等物件（暫未完成）（1／2）
 
 - GoBot [[https://gobot.io/][官方網站]]
@@ -365,39 +359,6 @@ https://www.facebook.com/oneleo760823
 - 未來解決方向：測試其他的 GARCH 參數。參數參考：[[https://golang.org/doc/install/source#environment][GoEnv]]
 
 - 經過實測，要使用官網所提供的 https://github.com/sarfata/pi-blaster 來進行設定，但是仍有缺點，因為用此方法會無法讓 LED 暗下來
-
-# --------------------------------------------------
-
-* 可控制微處理器周邊如 LED、馬達、按鈕等物件（Arduino）（1／2）
-
-- 安裝 [[https://brew.sh/index_zh-tw.html][Homebrew]]
-    $ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-
-- 安裝 [[http://gort.io/][GORT]]
-    $ brew install hybridgroup/tools/gort
-
-- 執行下列指令
-
-    $ gort scan serial
-    $ gort arduino install
-    $ gort arduino upload firmata /dev/tty.usbmodem1421
-
-- Arduino [[https://www.arduino.cc/][官方網站]]：[[https://www.arduino.cc/en/guide/Windows?setlang=cn][IDE for Windows]]、[[https://www.arduino.cc/en/guide/macOSX?setlang=cn][IDE for MacBook]]
-
-# --------------------------------------------------
-
-* 可控制微處理器周邊如 LED、馬達、按鈕等物件（Arduino）（2／2）
-
-- GoBot [[https://gobot.io/][官方網站]]
-
-- 下載 GoBot
-    $ go get -d -u -v gobot.io/x/gobot/...
-
-- 安裝開發板平台（這邊以 Arduino 為例）
-    $ go install gobot.io/x/gobot/platforms/firmata
-
-- 常用 API 連結：
-.link https://gowalker.org/gobot.io/x/gobot/drivers/gpio
 
 # --------------------------------------------------
 
@@ -496,8 +457,6 @@ https://www.facebook.com/oneleo760823
     $ echo $PATH
 
 .image ./images/Environment_07.png
-
-# --------------------------------------------------
 
 # --------------------------------------------------
 
