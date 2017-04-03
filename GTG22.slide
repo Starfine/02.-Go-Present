@@ -250,15 +250,15 @@ https://www.facebook.com/oneleo760823
 
 - Windows 要特別注意 SDK、JDK、NDK 環境變數的設置（請參考本頁說明）
 
-- [[https://developer.android.com/ndk/downloads][NDK 下載]]後解壓縮並放在 %USERPROFILE%\AppData\Local\Android 內
+- 1、[[https://developer.android.com/ndk/downloads][NDK 下載]]後解壓縮並放在 %USERPROFILE%\AppData\Local\Android 內
 
-- 為保有彈性，將 JDK、NDK 建立捷徑後再設定 Windows 中的環境變數
+- 2、為保彈性，將 JDK、NDK 建立捷徑後再設定 Windows 的環境變數，指令如下：
     
     > mklink /D /J "%USERPROFILE%\AppData\Local\Android\ndk"
         "%USERPROFILE%\AppData\Local\Android\android-ndk-r14"
     > mklink /D /J "C:\Program Files\Java\jdk" "C:\Program Files\Java\jdk1.8.0_121"
 
-- 設定 Windows 環境變數（永久設置請至「系統」→「進階系統設定」→「環境變數」→「使用者變數」內設定）。
+- 3、設定 Windows 環境變數（要永久生效請至「系統」→「進階系統設定」→「環境變數」→「使用者變數」內設定）。
 
     > set JAVA_HOME="C:\Program Files\Java\jdk"
     > set ANDROID_SDK_HOME="%USERPROFILE%\AppData\Local\Android\sdk"
@@ -274,14 +274,14 @@ https://www.facebook.com/oneleo760823
 
 - MacBook 要特別注意 SDK、JDK、NDK 環境變數的設置（請參考本頁說明）
 
-- [[https://developer.android.com/ndk/downloads][NDK 下載]]後解壓縮並放在 $HOME/Library/Android/ 內
+- 1、[[https://developer.android.com/ndk/downloads][NDK 下載]]後解壓縮並放在 $HOME/Library/Android/ 內
 
-- 為保有彈性，將 NDK 建立捷徑後再設定 MacBook 中的環境變數
+- 2、為保彈性，將 NDK 建立捷徑後再設定 MacBook 的環境變數，指令如下：
 
     $ ln -s "$HOME/Library/Android/android-ndk-r14" "$HOME/Library/Android/ndk"
     $ vim $HOME/.bash_profile
 
-- "$HOME/.bash_profile" 裡需置入如下內容，並使用 $ source 指令執行之，才會生效
+- 3、要永久生效請編輯（或建立）"$HOME/.bash_profile" 檔，加入下方指令，存檔後使用 source 指令執行之，才會生效。
 
 .code ./codePresent/.bash_profile(Android)
 
@@ -293,19 +293,22 @@ https://www.facebook.com/oneleo760823
 
 ---------------------------------------- Windows only ----------------------------------------
 
-- 安裝 GCC 編譯套件，請下載 [[http://tdm-gcc.tdragon.net/download][TDM-GCC]] 並安裝
+- 1、安裝 GCC 編譯套件，請下載 [[http://tdm-gcc.tdragon.net/download][TDM-GCC]] 並安裝
 
-- 下載 Windows 裡要編譯 Go Mobile 範例所需套件
-    > go get -u -v golang.org/x/exp/shiny/driver/gldriver
-    > go get -u -v golang.org/x/exp/shiny/screen
+- 註：Windows 欲執行 GoMobile 範例，在 GoMobile 套件下載後（[[http://127.0.0.1:3999/GTG22.slide#22][Page 22]]），還要下載 GoMobile 相依套件（使用[[https://github.com/golang/dep][dep]]），指令如下：
+#> go get -u -v golang.org/x/exp/shiny/driver/gldriver
+#> go get -u -v golang.org/x/exp/shiny/screen
+    > go get -u -v github.com/golang/dep/...
+    > cd "%USERPROFILE%\go\src\golang.org\x\mobile\example\"
+    > dep init -v
 
 ---------------------------------------- MacBook only ----------------------------------------
 
-- 安裝 GCC 編譯套件，MacBook 裡請下載 [[https://itunes.apple.com/tw/app/xcode/id497799835?l=zh&mt=12][Xcode]] 並安裝，即建立好 GCC 環境
+- 1、安裝 GCC 編譯套件，MacBook 裡請下載 [[https://itunes.apple.com/tw/app/xcode/id497799835?l=zh&mt=12][Xcode]] 並安裝，即建立好 GCC 環境
 
 ---------------------------------------- Windows & MacBook both ----------------------------------------
 
-- 安裝完成 GCC 後請使用下面指令確認
+- 1、安裝完成 GCC 後請使用下面指令確認
     $> gcc --version
 
 # --------------------------------------------------
@@ -314,10 +317,10 @@ https://www.facebook.com/oneleo760823
 
 - Go Mobile [[https://godoc.org/golang.org/x/mobile/cmd/gomobile][官網連結]]
 
-- 下載 GoMobile
+- 1、下載 GoMobile
     $> go get -u -v golang.org/x/mobile/cmd/gomobile
 
-- 安裝 GoMobile 編譯工具
+- 2、安裝 GoMobile 編譯工具
     Windows: > gomobile init -v
     MacBook: $ gomobile init -v -ndk "$ANDROID_NDK_HOME"
 
@@ -330,7 +333,7 @@ https://www.facebook.com/oneleo760823
 
 * 使用 Go Mobile 開發手機 APP（6／7）
 
-- 在本機執行測試
+- 在本機執行測試（Basic Example）
     Windows: > cd "%USERPROFILE%\go\src\golang.org\x\mobile\example\basic"
     MacBook: $ cd "$HOME/go/src/golang.org/x/mobile/example/basic"
     $> go run main.go
@@ -1018,9 +1021,17 @@ https://www.facebook.com/oneleo760823
 
 # --------------------------------------------------
 
-* 其他推薦好康（1／2）
+* 其他推薦好康（1／3）
 
 - [[https://talks.golang.org/][官方新版本釋出前介紹]]（英文）
+
+- [[https://www.codeschool.com/courses/on-track-with-golang][Code School]]（英文）
+
+- [[https://www.youtube.com/channel/UCx9QVEApa5BKLw9r8cnOFEA/playlists][GopherCon YouTube]]（英文）
+
+- [[https://www.goin5minutes.com/screencasts/][Go In 5 Minutes Screencasts]]（英文）
+
+- [[https://github.com/golang/go/wiki/GoTalks][Go Talks]]（英文）
 
 - [[https://go-tour-zh-tw.appspot.com/welcome/1][官方程式練習]]
 
@@ -1032,6 +1043,10 @@ https://www.facebook.com/oneleo760823
 
 - [[http://colobu.com/][鳥窩-大道至簡]]
 
+# --------------------------------------------------
+
+* 其他推薦好康（2／3）
+
 - [[http://speakingbaicai.blog.51cto.com/][說話的白菜博客]]
 
 - [[http://www.flysnow.org/][飛雪無情的博客]]
@@ -1039,10 +1054,6 @@ https://www.facebook.com/oneleo760823
 - [[http://www.nljb.net/][努力加貝]]
 
 - [[http://chuansong.me/account/golangchina][微信：Go 中國]]
-
-# --------------------------------------------------
-
-* 其他推薦好康（2／2）
 
 - [[https://xiequan.info/category/%E7%BC%96%E7%A8%8B/go/][謝權 SELF]]
 
@@ -1053,6 +1064,10 @@ https://www.facebook.com/oneleo760823
 - [[http://lib.csdn.net/base/go][Go 知識庫]]
 
 - [[https://segmentfault.com/t/golang][SegmentFault 社區 - Golang]]
+
+# --------------------------------------------------
+
+* 其他推薦好康（3／3）
 
 - [[http://wiki.jikexueyuan.com/list/go/][極客學院 - Go 語言]]
 
